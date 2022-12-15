@@ -1,10 +1,73 @@
 /*---------------------------- Variables (state) ----------------------------*/
+let roundCounter, rollCounter, turn, gameInProgress, winner, tie
+
+let diceTally = {}
+
+let diceOnTable = []
+
+let scoreboard1 = {
+  aces: null,
+  twos: null,
+  threes: null,
+  fours: null,
+  fives: null,
+  sixes: null,
+  threeOfAKind: null,
+  fourOfAKind: null,
+  fullHouse: null,
+  smallStraight: null,
+  largeStraight: null,
+  yasszee: null,
+  chance: null,
+}
+
+let scoreboard2 = {
+  aces: null,
+  twos: null,
+  threes: null,
+  fours: null,
+  fives: null,
+  sixes: null,
+  threeOfAKind: null,
+  fourOfAKind: null,
+  fullHouse: null,
+  smallStraight: null,
+  largeStraight: null,
+  yasszee: null,
+  chance: null,
+}
+//dice variables
+let die0 = {
+  value: null,
+  locked: false
+}
+let die1 = {
+  value: null,
+  locked: false
+}
+let die2 = {
+  value: null,
+  locked: false
+}
+let die3 = {
+  value: null,
+  locked: false
+}
+let die4 = {
+  value: null,
+  locked: false
+}
 
 
 
-
-
-/*---------------------------- Variables (state) ----------------------------*/
+/*------------------------ Cached Element References ------------------------*/
+const messageEl = document.querySelector("#message")
+const rollBtn = document.querySelector("#roll-btn")
+const endTurnBtn = document.querySelector("#end-turn-btn")
+const restartBtn = document.querySelector("#restart-btn")
+const tableDiceEl = document.querySelector("#table-dice")
+const scoreboard1El = document.querySelector("player-one-scoreboard")
+const scoreboard2Ek = document.querySelector("player-two-scoreboard")
 
 
 
