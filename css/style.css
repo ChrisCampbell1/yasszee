@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "dice";
+  src: url(../fonts/Dice.ttf);
+}
+
 html {
   box-sizing: border-box
 }
@@ -45,4 +50,30 @@ body {
   width: auto;
   border: 1px solid black;
   
+}
+#play-area {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  font-family: "dice";
+  font-size: 36px;
+}
+
+#play-area button {
+  margin: 10px 0;
+}
+
+#table-dice {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.table-die {
+  display: flex;
+  flex-direction: column;
+}
+
+#restart-btn {
+
 }
