@@ -22,5 +22,27 @@ body {
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  margin: 0;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#sub-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#gameboard{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.scoreboard{
+  width: auto;
+  border: 1px solid black;
+  
 }
