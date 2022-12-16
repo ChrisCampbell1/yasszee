@@ -80,6 +80,7 @@ const tableDiceEl = document.querySelector("#table-dice")
 const scoreboard1El = document.querySelector("player-one-scoreboard")
 const scoreboard2Ek = document.querySelector("player-two-scoreboard")
 const dieEl = document.querySelectorAll(".table-die")
+const rollCountEl = document.querySelector("#roll-count")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -160,6 +161,9 @@ function displayMessage() {
 }
 
 function rollDiceHandle() {
+  if(rollCounter >= 3){
+    return
+  }
   console.log("roll dice handle was called")
   rollDice(diceOnTable)
 }
@@ -170,6 +174,7 @@ function rollDice(arr) {
       arr[i].value = Math.floor(Math.random() * 6) + 1
     }
   } renderDice(diceOnTable)
+  rollIncrement()
 }
 
 function lockDice(evt) {
@@ -187,6 +192,11 @@ function renderDice(arr) {
   }
 }
 
+function rollIncrement(){
+  rollCounter++
+  console.log(rollCounter, "roll count")
+  rollCountEl.textContent = rollCounter
+}
 
 /*------------------------ Minimum Requirements -----------------------------*/
 // - **Render a game in the browser**. You may not use Canvas or jQuery.
