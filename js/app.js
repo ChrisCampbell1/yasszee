@@ -5,7 +5,7 @@ let player2Name = "Katya"
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let roundCounter, rollCounter, turn, gameInProgress, winner, tie
+let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
 
 let diceTally = {}
 
@@ -77,8 +77,8 @@ const rollBtn = document.querySelector("#roll-btn")
 const endTurnBtn = document.querySelector("#end-turn-btn")
 const restartBtn = document.querySelector("#restart-btn")
 const tableDiceEl = document.querySelector("#table-dice")
-const scoreboard1El = document.querySelector("player-one-scoreboard")
-const scoreboard2El = document.querySelector("player-two-scoreboard")
+const scoreboard1El = document.querySelector("#player-one-scoreboard")
+const scoreboard2El = document.querySelector("#player-two-scoreboard")
 const dieEl = document.querySelectorAll(".table-die")
 const rollCountEl = document.querySelector("#roll-count")
 const lockBtnEls = document.querySelectorAll(".lock-btn")
@@ -88,11 +88,14 @@ restartBtn.addEventListener("click", init)
 rollBtn.addEventListener("click", rollDiceHandle)
 tableDiceEl.addEventListener("click", lockDice)
 endTurnBtn.addEventListener("click", endTurnHandle)
+scoreboard1El.addEventListener("click", scoreboardClickHandle)
+scoreboard2El.addEventListener("click", scoreboardClickHandle)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init() {
+  turnOver = false
   roundCounter = 1
   rollCounter = 0
   turn = 1
@@ -230,8 +233,41 @@ function tallyDice(arr) {
   } console.log(diceTally)
 }
 
+function placeHand() {
+
+}
+
+function scoreboardClickHandle(evt) {
+  if(turnOver === false){
+    return
+  }
+  const targetType = evt.srcElement.type
+  if(targetType !== "submit"){
+    return
+  }
+  const target = evt.target
+  if(turn === 1 && target.classList.contains("p2")){
+    return
+  }
+  let scoreboardKey = evt.target.textContent.toLowerCase()
+  scoreboard1[scoreboardKey] = diceTally
+  console.log(scoreboard1)
+  turnOver = false
+  changeTurn()
+  render()
+  if(turn === -1 && target.classList.contains("p1")){
+    return
+  }
+  let scoreboardKey2 = evt.target.textContent.toLowerCase()
+  scoreboard2[scoreboardKey2] = diceTally
+  turnOver = false
+  changeTurn()
+  render()
+}
+
 function endTurnHandle() {
   tallyDice(diceOnTable)
+  turnOver = true
 }
 
 /*------------------------ Minimum Requirements -----------------------------*/
