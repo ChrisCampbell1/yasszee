@@ -84,7 +84,7 @@ const scoreboard2Ek = document.querySelector("player-two-scoreboard")
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
 rollBtn.addEventListener("click", rollDiceHandle)
-
+tableDiceEl.addEventListener("click", lockDice)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -169,6 +169,16 @@ function rollDice(arr) {
       arr[i].value = Math.floor(Math.random() * 6) + 1
     }
   } console.log(diceOnTable)
+}
+
+function lockDice(evt) {
+  let divId = evt.path[1].id
+  let diceId = divId.replace("die-","")
+  diceOnTable[diceId].locked = true
+}
+
+function renderDice() {
+  
 }
 
 
