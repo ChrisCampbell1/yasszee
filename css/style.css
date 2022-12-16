@@ -77,3 +77,12 @@ body {
 #restart-btn {
 
 }
+
+/* .lock-btn {
+  color: black;
+} */
+
+.locked {
+  color: red;
+  after: 
+}

@@ -161,10 +161,9 @@ function displayMessage() {
 }
 
 function rollDiceHandle() {
-  if(rollCounter >= 3){
-    return
-  }
-  console.log("roll dice handle was called")
+  // if(rollCounter >= 3){
+  //   return
+  // }
   rollDice(diceOnTable)
 }
 
@@ -182,19 +181,22 @@ function lockDice(evt) {
   let diceId = divId.replace("die-","")
   if(diceOnTable[diceId].locked === false){
     diceOnTable[diceId].locked = true
-  } else diceOnTable[diceId].locked = false
+    console.log(evt.target.classList)
+    evt.target.classList.add("locked")
+  } else if (diceOnTable[diceId].locked === true){
+    diceOnTable[diceId].locked = false
+    evt.target.classList.remove("locked")
+  }
 }
 
 function renderDice(arr) {
   for(let i = 0; i < arr.length; i++) {
-    dieEl[i].innerHTML = `${diceOnTable[i].value} 
-    <button class="lock-btn">lock</button>`
+    dieEl[i].firstChild.textContent = `${diceOnTable[i].value}`
   }
 }
 
 function rollIncrement() {
   rollCounter++
-  console.log(rollCounter, "roll count")
   rollCountEl.textContent = rollCounter
 }
 
