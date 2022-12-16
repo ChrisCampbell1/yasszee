@@ -266,8 +266,8 @@ function tallyDice(arr) {
 function placeHand(evt) {
   let scoreboardKey = evt.target.textContent.toLowerCase()
   if (turn === 1){
-    scoreboard1[scoreboardKey] = diceTally
-    console.log(scoreboard1)
+      scoreboard1[scoreboardKey] = diceTally
+      console.log(scoreboard1)
   } else if (turn === -1){
     scoreboard2[scoreboardKey] = diceTally
     console.log(scoreboard2)
@@ -283,12 +283,20 @@ function scoreboardClickHandle(evt) {
     return
   }
   const target = evt.target
+  let scoreboardKey = evt.target.textContent.toLowerCase()
   if(turn === 1 && target.classList.contains("p2")){
+    return
+  }
+  if(turn === 1 && scoreboard1[scoreboardKey] !== null){
     return
   }
   if(turn === -1 && target.classList.contains("p1")){
     return
   }
+  if(turn === -1 && scoreboard2[scoreboardKey] !== null){
+    return
+  }
+  
   placeHand(evt)
   turnOver = false
   changeTurn()
