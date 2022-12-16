@@ -1,9 +1,14 @@
+/*--------------------------------Constants----------------------------*/
+
+let player1Name = "Tixie"
+let player2Name = "Katya"
+
+
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie
 
 let diceTally = {}
 
-let diceOnTable = []
 
 let scoreboard1 = {
   aces: null,
@@ -58,7 +63,13 @@ let die4 = {
   locked: false
 }
 
-
+let diceOnTable = [
+  die0,
+  die1,
+  die2,
+  die3,
+  die4
+]
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector("#message")
@@ -70,18 +81,95 @@ const scoreboard1El = document.querySelector("player-one-scoreboard")
 const scoreboard2Ek = document.querySelector("player-two-scoreboard")
 
 
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
-
-
+restartBtn.addEventListener("click", init)
+rollBtn.addEventListener("click", rollDiceHandle)
 
 
 /*-------------------------------- Functions --------------------------------*/
+init()
 
+function init() {
+  roundCounter = 1
+  rollCounter = 0
+  turn = 1
+  gameInProgress = true
+  winner = false
+  tie = false
+  diceTally = {}
+  scoreboard1 = {
+  aces: null,
+  twos: null,
+  threes: null,
+  fours: null,
+  fives: null,
+  sixes: null,
+  threeOfAKind: null,
+  fourOfAKind: null,
+  fullHouse: null,
+  smallStraight: null,
+  largeStraight: null,
+  yasszee: null,
+  chance: null,
+  }
+  scoreboard2 = {
+  aces: null,
+  twos: null,
+  threes: null,
+  fours: null,
+  fives: null,
+  sixes: null,
+  threeOfAKind: null,
+  fourOfAKind: null,
+  fullHouse: null,
+  smallStraight: null,
+  largeStraight: null,
+  yasszee: null,
+  chance: null,
+  }
+  die0 = {
+    value: null,
+    locked: false
+  }
+  die1 = {
+    value: null,
+    locked: false
+  }
+  die2 = {
+    value: null,
+    locked: false
+  }
+  die3 = {
+    value: null,
+    locked: false
+  }
+  die4 = {
+    value: null,
+    locked: false
+  }
+  render()
+}
 
+function render() {
+displayMessage()
+}
 
+function displayMessage() {
+  turn === 1 ? messageEl.textContent = `${player1Name}, you better work those dice!` : messageEl.textContent = `${player2Name}, you better work those dice!`
+}
+
+function rollDiceHandle() {
+  console.log("roll dice handle was called")
+  rollDice(diceOnTable)
+}
+
+function rollDice(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].locked === false){
+      arr[i].value = Math.floor(Math.random() * 6) + 1
+    }
+  } console.log(diceOnTable)
+}
 
 
 /*------------------------ Minimum Requirements -----------------------------*/
