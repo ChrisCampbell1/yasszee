@@ -43,23 +43,23 @@ let scoreboard2 = {
 }
 //dice variables
 let die0 = {
-  value: null,
+  value: 0,
   locked: false
 }
 let die1 = {
-  value: null,
+  value: 0,
   locked: false
 }
 let die2 = {
-  value: null,
+  value: 0,
   locked: false
 }
 let die3 = {
-  value: null,
+  value: 0,
   locked: false
 }
 let die4 = {
-  value: null,
+  value: 0,
   locked: false
 }
 
@@ -130,30 +130,39 @@ function init() {
   chance: null,
   }
   die0 = {
-    value: null,
+    value: 0,
     locked: false
   }
   die1 = {
-    value: null,
+    value: 0,
     locked: false
   }
   die2 = {
-    value: null,
+    value: 0,
     locked: false
   }
   die3 = {
-    value: null,
+    value: 0,
     locked: false
   }
   die4 = {
-    value: null,
+    value: 0,
     locked: false
   }
+  diceOnTable = [
+    die0,
+    die1,
+    die2,
+    die3,
+    die4
+  ]
   render()
 }
 
 function render() {
+rollCountEl.textContent = rollCounter
 displayMessage()
+renderDice(diceOnTable)
 }
 
 function displayMessage() {
@@ -161,9 +170,9 @@ function displayMessage() {
 }
 
 function rollDiceHandle() {
-  // if(rollCounter >= 3){
-  //   return
-  // }
+  if(rollCounter >= 3){
+    return
+  }
   rollDice(diceOnTable)
 }
 
@@ -181,7 +190,6 @@ function lockDice(evt) {
   let diceId = divId.replace("die-","")
   if(diceOnTable[diceId].locked === false){
     diceOnTable[diceId].locked = true
-    console.log(evt.target.classList)
     evt.target.classList.add("locked")
   } else if (diceOnTable[diceId].locked === true){
     diceOnTable[diceId].locked = false
