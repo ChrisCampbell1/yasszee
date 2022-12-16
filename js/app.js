@@ -79,6 +79,7 @@ const restartBtn = document.querySelector("#restart-btn")
 const tableDiceEl = document.querySelector("#table-dice")
 const scoreboard1El = document.querySelector("player-one-scoreboard")
 const scoreboard2Ek = document.querySelector("player-two-scoreboard")
+const dieEl = document.querySelectorAll(".table-die")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -168,7 +169,7 @@ function rollDice(arr) {
     if(arr[i].locked === false){
       arr[i].value = Math.floor(Math.random() * 6) + 1
     }
-  } console.log(diceOnTable)
+  } renderDice(diceOnTable)
 }
 
 function lockDice(evt) {
@@ -177,8 +178,11 @@ function lockDice(evt) {
   diceOnTable[diceId].locked = true
 }
 
-function renderDice() {
-  
+function renderDice(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    dieEl[i].innerHTML = `${diceOnTable[i].value} 
+    <button class="lock-btn">lock</button>`
+  }
 }
 
 
