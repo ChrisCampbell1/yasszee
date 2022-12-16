@@ -192,11 +192,18 @@ function renderDice(arr) {
   }
 }
 
-function rollIncrement(){
+function rollIncrement() {
   rollCounter++
   console.log(rollCounter, "roll count")
   rollCountEl.textContent = rollCounter
 }
+
+function changeTurn() {
+  turn = turn * -1
+  console.log(turn)
+}
+
+
 
 /*------------------------ Minimum Requirements -----------------------------*/
 // - **Render a game in the browser**. You may not use Canvas or jQuery.
