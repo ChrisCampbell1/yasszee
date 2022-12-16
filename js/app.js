@@ -175,7 +175,9 @@ function rollDice(arr) {
 function lockDice(evt) {
   let divId = evt.path[1].id
   let diceId = divId.replace("die-","")
-  diceOnTable[diceId].locked = true
+  if(diceOnTable[diceId].locked === false){
+    diceOnTable[diceId].locked = true
+  } else diceOnTable[diceId].locked = false
 }
 
 function renderDice(arr) {
