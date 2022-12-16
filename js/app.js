@@ -78,15 +78,16 @@ const endTurnBtn = document.querySelector("#end-turn-btn")
 const restartBtn = document.querySelector("#restart-btn")
 const tableDiceEl = document.querySelector("#table-dice")
 const scoreboard1El = document.querySelector("player-one-scoreboard")
-const scoreboard2Ek = document.querySelector("player-two-scoreboard")
+const scoreboard2El = document.querySelector("player-two-scoreboard")
 const dieEl = document.querySelectorAll(".table-die")
 const rollCountEl = document.querySelector("#roll-count")
-
+const lockBtnEls = document.querySelectorAll(".lock-btn")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
 rollBtn.addEventListener("click", rollDiceHandle)
 tableDiceEl.addEventListener("click", lockDice)
+endTurnBtn.addEventListener("click", endTurnHandle)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -157,6 +158,7 @@ function init() {
     die4
   ]
   render()
+  resetLockBtns(lockBtnEls)
 }
 
 function render() {
@@ -213,7 +215,24 @@ function changeTurn() {
   console.log(turn)
 }
 
+function resetLockBtns(arr){
+  arr.forEach(btn => {
+    btn.classList.remove("locked")
+  });
+}
 
+function tallyDice(arr) {
+  for(let i = 0; i < arr.length; i++){
+    let die = arr[i]
+    if(diceTally[die.value]){
+      diceTally[die.value]++
+    } else diceTally[die.value] = 1
+  } console.log(diceTally)
+}
+
+function endTurnHandle() {
+  tallyDice(diceOnTable)
+}
 
 /*------------------------ Minimum Requirements -----------------------------*/
 // - **Render a game in the browser**. You may not use Canvas or jQuery.
