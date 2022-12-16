@@ -208,6 +208,36 @@ function renderDice(arr) {
   }
 }
 
+function resetDice() {
+  die0 = {
+    value: 0,
+    locked: false
+  }
+  die1 = {
+    value: 0,
+    locked: false
+  }
+  die2 = {
+    value: 0,
+    locked: false
+  }
+  die3 = {
+    value: 0,
+    locked: false
+  }
+  die4 = {
+    value: 0,
+    locked: false
+  }
+  diceOnTable = [
+    die0,
+    die1,
+    die2,
+    die3,
+    die4
+  ]
+}
+
 function rollIncrement() {
   rollCounter++
   rollCountEl.textContent = rollCounter
@@ -233,8 +263,15 @@ function tallyDice(arr) {
   } console.log(diceTally)
 }
 
-function placeHand() {
-
+function placeHand(evt) {
+  let scoreboardKey = evt.target.textContent.toLowerCase()
+  if (turn === 1){
+    scoreboard1[scoreboardKey] = diceTally
+    console.log(scoreboard1)
+  } else if (turn === -1){
+    scoreboard2[scoreboardKey] = diceTally
+    console.log(scoreboard2)
+  }
 }
 
 function scoreboardClickHandle(evt) {
@@ -249,19 +286,15 @@ function scoreboardClickHandle(evt) {
   if(turn === 1 && target.classList.contains("p2")){
     return
   }
-  let scoreboardKey = evt.target.textContent.toLowerCase()
-  scoreboard1[scoreboardKey] = diceTally
-  console.log(scoreboard1)
-  turnOver = false
-  changeTurn()
-  render()
   if(turn === -1 && target.classList.contains("p1")){
     return
   }
-  let scoreboardKey2 = evt.target.textContent.toLowerCase()
-  scoreboard2[scoreboardKey2] = diceTally
+  placeHand(evt)
   turnOver = false
   changeTurn()
+  resetLockBtns(lockBtnEls)
+  resetDice(diceOnTable)
+  rollCounter = 0
   render()
 }
 
