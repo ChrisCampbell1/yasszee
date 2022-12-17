@@ -303,10 +303,12 @@ function scoreboardClickHandle(evt) {
   resetLockBtns(lockBtnEls)
   resetDice(diceOnTable)
   rollCounter = 0
+  endTurnBtn.classList.remove("true")
   render()
 }
 
-function endTurnHandle() {
+function endTurnHandle(evt) {
+  evt.target.classList.add("true")
   tallyDice(diceOnTable)
   turnOver = true
 }
