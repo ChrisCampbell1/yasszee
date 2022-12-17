@@ -193,6 +193,9 @@ function rollDice(arr) {
 function lockDice(evt) {
   let divId = evt.path[1].id
   let diceId = divId.replace("die-","")
+  if(diceOnTable[diceId].value === 0){
+    return
+  }
   if(diceOnTable[diceId].locked === false){
     diceOnTable[diceId].locked = true
     evt.target.classList.add("locked")
