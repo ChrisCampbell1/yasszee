@@ -17,8 +17,8 @@ let scoreboard1 = {
   fours: null,
   fives: null,
   sixes: null,
-  threeOfAKind: null,
-  fourOfAKind: null,
+  threeofakind: null,
+  fourofakind: null,
   fullHouse: null,
   smallStraight: null,
   largeStraight: null,
@@ -33,8 +33,8 @@ let scoreboard2 = {
   fours: null,
   fives: null,
   sixes: null,
-  threeOfAKind: null,
-  fourOfAKind: null,
+  threeofakind: null,
+  fourofakind: null,
   fullHouse: null,
   smallStraight: null,
   largeStraight: null,
@@ -110,11 +110,11 @@ function init() {
   fours: null,
   fives: null,
   sixes: null,
-  threeOfAKind: null,
-  fourOfAKind: null,
-  fullHouse: null,
-  smallStraight: null,
-  largeStraight: null,
+  threeofakind: null,
+  fourofakind: null,
+  fullhouse: null,
+  smallstraight: null,
+  largestraight: null,
   yasszee: null,
   chance: null,
   }
@@ -125,11 +125,11 @@ function init() {
   fours: null,
   fives: null,
   sixes: null,
-  threeOfAKind: null,
-  fourOfAKind: null,
-  fullHouse: null,
-  smallStraight: null,
-  largeStraight: null,
+  threeofakind: null,
+  fourofakind: null,
+  fullhouse: null,
+  smallstraight: null,
+  largestraight: null,
   yasszee: null,
   chance: null,
   }
@@ -175,7 +175,7 @@ function displayMessage() {
 }
 
 function rollDiceHandle() {
-  if(rollCounter >= 3){
+  if(rollCounter >= 3 || turnOver === true){
     return
   }
   rollDice(diceOnTable)
@@ -267,7 +267,7 @@ function tallyDice(arr) {
 }
 
 function placeHand(evt) {
-  let scoreboardKey = evt.target.textContent.toLowerCase()
+  let scoreboardKey = evt.target.textContent.toLowerCase().replaceAll(" ", "")
   if (turn === 1){
       scoreboard1[scoreboardKey] = diceTally
       console.log(scoreboard1)
@@ -286,7 +286,7 @@ function scoreboardClickHandle(evt) {
     return
   }
   const target = evt.target
-  let scoreboardKey = evt.target.textContent.toLowerCase()
+  let scoreboardKey = evt.target.textContent.toLowerCase().replaceAll(" ","")
   if(turn === 1 && target.classList.contains("p2")){
     return
   }
@@ -299,7 +299,7 @@ function scoreboardClickHandle(evt) {
   if(turn === -1 && scoreboard2[scoreboardKey] !== null){
     return
   }
-  
+  console.log("scoreboard was clicked")
   placeHand(evt)
   turnOver = false
   changeTurn()
@@ -307,6 +307,7 @@ function scoreboardClickHandle(evt) {
   resetDice(diceOnTable)
   rollCounter = 0
   endTurnBtn.classList.remove("true")
+  diceTally = {}
   render()
 }
 
