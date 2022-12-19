@@ -550,9 +550,9 @@ function scoreSmallStraight(scoreboard){
 
 function scoreLargeStraight(scoreboard){
   let valueTracker = 0
-  for(dice in scoreboard.largeStraight){
-    if(scoreboard.largeStraight[dice] > valueTracker){
-      valueTracker = scoreboard.largeStraight[dice]
+  for(dice in scoreboard.largestraight){
+    if(scoreboard.largestraight[dice] > valueTracker){
+      valueTracker = scoreboard.largestraight[dice]
     }
   }
   if(valueTracker === 1){
