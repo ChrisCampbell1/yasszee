@@ -228,14 +228,21 @@ function init() {
 }
 
 function render() {
-rollCountEl.textContent = rollCounter
-turnCountEl.textContent = roundCounter
-displayMessage()
-renderDice(diceOnTable)
+  rollCountEl.textContent = rollCounter
+  if(roundCounter < 14){
+    turnCountEl.textContent = roundCounter
+  } else turnCountEl.textContent = "Game Over"
+  displayMessage()
+  renderDice(diceOnTable)
 }
 
 function displayMessage() {
   turn === 1 ? messageEl.textContent = `${player1Name}, you better work those dice!` : messageEl.textContent = `${player2Name}, you better work those dice!`
+  if(gameInProgress === false){
+    if(tie === true){
+      messageEl.textContent =`Y'all tied, try again?`
+    } else p1Score > p2Score ? messageEl.textContent = `${player1Name}, you're a winner baby! ${player2Name} sashay away.` : messageEl.textContent = `${player2Name}, you're a winner baby! ${player1Name} sashay away.`
+  }
 }
 
 function rollDiceHandle() {
@@ -405,21 +412,21 @@ function scoreboardClickHandle(evt) {
   diceTally = {}
   if(turn === 1){
   renderScoreboard1(p1DisplayEls)
-} else if (turn === -1){
+  } else if (turn === -1){
   renderScoreboard2(p2DisplayEls)
-}
+  }
   turnOver = false
   if(turn === -1){
     roundCounter++
+    if(roundCounter > 13){
+      gameInProgress = false
+    } endGame()
   }
   changeTurn()
   resetLockBtns(lockBtnEls)
   resetDice(diceOnTable)
   rollCounter = 0
   endTurnBtn.classList.remove("true")
-  if (roundCounter === 13){
-    gameInProgress === false
-  }
   render()
 }
 
@@ -433,6 +440,17 @@ function endTurnHandle(evt) {
   evt.target.classList.add("true")
   tallyDice(diceOnTable)
   turnOver = true
+}
+
+function endGame() {
+  if(gameInProgress === true){
+    return
+  } else if (gameInProgress === false){
+    calculateScore(scoreboard1, p1Score)
+    calculateScore(scoreboard2, p2Score)
+  } if(p1Score === p2Score){
+    tie = true
+  }
 }
 
 
