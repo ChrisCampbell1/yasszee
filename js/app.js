@@ -97,9 +97,9 @@ let diceOnTable = [
   die4
 ]
 
-let p1Score = scoreboard1.acesValue + scoreboard1.twosValue + scoreboard1.threesValue + scoreboard1.foursValue + scoreboard1.fivesValue + scoreboard1.sixesValue + scoreboard1.threeOfAKindValue + scoreboard1.fourOfAKindValue + scoreboard1.fullHouseValue + scoreboard1.smallStraightValue + scoreboard1.largeStraightValue + scoreboard1.yasszeeValue + scoreboard1.chanceValue
+let p1Score = 0
 
-let p2Score = scoreboard2.acesValue + scoreboard2.twosValue + scoreboard2.threesValue + scoreboard2.foursValue + scoreboard2.fivesValue + scoreboard2.sixesValue + scoreboard2.threeOfAKindValue + scoreboard2.fourOfAKindValue + scoreboard2.fullHouseValue + scoreboard2.smallStraightValue + scoreboard2.largeStraightValue + scoreboard2.yasszeeValue + scoreboard2.chanceValue
+let p2Score = 0
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector("#message")
@@ -448,6 +448,8 @@ function endGame() {
   } else if (gameInProgress === false){
     calculateScore(scoreboard1, p1Score)
     calculateScore(scoreboard2, p2Score)
+    p1Score = addScore(scoreboard1)
+    p2Score = addScore(scoreboard2)
   } if(p1Score === p2Score){
     tie = true
   }
@@ -598,7 +600,7 @@ function scoreChance(scoreboard){
   scoreboard.chanceValue = diceTotal
 }
 
-function calculateScore(scoreboard, score){
+function calculateScore(scoreboard){
   scoreAces(scoreboard)
   scoreTwos(scoreboard)
   scoreThrees(scoreboard)
@@ -613,12 +615,12 @@ function calculateScore(scoreboard, score){
   scoreLargeStraight(scoreboard)
   scoreYasszee(scoreboard)
   scoreChance(scoreboard)
-  addScore(score, scoreboard)
 }
 
-function addScore(score, scoreboard) {
-  score = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue + scoreboard.upperHalfBonus
-  console.log(score)
+function addScore(scoreboard) {
+  let total = 0
+  total = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue + scoreboard.upperHalfBonus
+  return total
 }
 
 
@@ -626,16 +628,16 @@ function addScore(score, scoreboard) {
 
 
 /*------------------------ Minimum Requirements -----------------------------*/
-// - **Render a game in the browser**. You may not use Canvas or jQuery.
+//// - **Render a game in the browser**. You may not use Canvas or jQuery.
 // - **Include win/loss logic and render win/loss messages in HTML.** You may not use alerts or prompt anywhere in your application.
 // - Include separate HTML, CSS, JavaScript, and JavaScript Data files.
 // - Be grammatically correct and be free of spelling errors.
 // - Display a favicon.
-// - Use CSS Flexbox or Grid.
+//// - Use CSS Flexbox or Grid.
 // - Look and feel similar to apps we use daily - it has should have a consistent and polished user interface and offers a positive user experience, including accessibility features.
 // - Have no remaining dead or commented out code, or console logs.
 // - Be coded using proper indentation.
 // - Be coded using function and variable names that make sense and follow the conventions demonstrated in lecture (for example: arrays are always plural).
 // - **Display that you are making consistent code choices**. For example, choose between your preference for function declarations vs. function expressions.
-// - Be deployed online so that the rest of the world can play your game!
-// - Include functionality specific to your game as specified in square brackets in the Recommended Games section below, or as discussed with your instructor if building a game not on the Recommended Games list.
+//// - Be deployed online so that the rest of the world can play your game!
+//// - Include functionality specific to your game as specified in square brackets in the Recommended Games section below, or as discussed with your instructor if building a game not on the Recommended Games list.
