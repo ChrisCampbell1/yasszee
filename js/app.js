@@ -128,6 +128,8 @@ scoreboard2El.addEventListener("click", scoreboardClickHandle)
 init()
 
 function init() {
+  p1Score = 0
+  p2Score = 0
   turnOver = false
   roundCounter = 1
   rollCounter = 0
