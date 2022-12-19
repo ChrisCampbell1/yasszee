@@ -34,7 +34,8 @@ let scoreboard1 = {
   smallStraightValue: 0,
   largeStraightValue: 0,
   yasszeeValue: 0,
-  chanceValue: 0
+  chanceValue: 0,
+  upperHalfBonus: 0
 }
 
 let scoreboard2 = {
@@ -63,7 +64,8 @@ let scoreboard2 = {
   smallStraightValue: 0,
   largeStraightValue: 0,
   yasszeeValue: 0,
-  chanceValue: 0
+  chanceValue: 0,
+  upperHalfBonus: 0
 }
 //dice variables
 let die0 = {
@@ -160,7 +162,8 @@ function init() {
   smallStraightValue: 0,
   largeStraightValue: 0,
   yasszeeValue: 0,
-  chanceValue: 0
+  chanceValue: 0,
+  upperHalfBonus: 0
   }
   scoreboard2 = {
   aces: null,
@@ -188,7 +191,8 @@ function init() {
   smallStraightValue: 0,
   largeStraightValue: 0,
   yasszeeValue: 0,
-  chanceValue: 0
+  chanceValue: 0,
+  upperHalfBonus: 0
   }
   die0 = {
     value: 0,
@@ -482,6 +486,10 @@ function scoreSixes(scoreboard){
   scoreboard.sixesValue = sixesValue
 }
 
+function upperHalfBonus(scoreboard) {
+  if(scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue >= 63 )
+  scoreboard.upperHalfBonus = 35
+}
 
 
 
@@ -513,10 +521,11 @@ function calculateScore(scoreboard, score){
   scoreFours(scoreboard)
   scoreFives(scoreboard)
   scoreSixes(scoreboard)
+  upperHalfBonus(scoreboard)
   addScore(score, scoreboard)
 }
 function addScore(score, scoreboard) {
-  score = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue
+  score = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue + scoreboard.upperHalfBonus
   console.log(score)
 }
 
