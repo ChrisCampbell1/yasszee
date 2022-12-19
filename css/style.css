@@ -91,7 +91,7 @@ button.true {
   color: red;
 }
 
-td.p1 {
+td.p1, td.p2 {
   font-family: "dice";
   font-size: 36px;
 }

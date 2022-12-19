@@ -84,6 +84,7 @@ const dieEl = document.querySelectorAll(".table-die")
 const rollCountEl = document.querySelector("#roll-count")
 const lockBtnEls = document.querySelectorAll(".lock-btn")
 const p1DisplayEls = document.querySelectorAll("td.p1")
+const p2DisplayEls = document.querySelectorAll("td.p2")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
@@ -279,22 +280,37 @@ function placeHand(evt) {
   }
 }
 
-function renderScoreboard(arr) {
-  //itterate through the p1displayels
-  //take the id of the el and look it up in the scoreboard object
-  //set the text content to the value that matches the key in the scoreboard object
+function renderScoreboard1(arr) {
   let handString = ""
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
-    console.log(scoreboardKey)
+    console.log(scoreboardKey, "scoreboard key")
     let hand = scoreboard1[scoreboardKey]
+    console.log(hand, "hand")
     for(prop in hand){
       for(let i = 0; i < hand[prop]; i++){
         handString = handString + prop
-        console.log(handString)
     }
     }
     arr[i].textContent = handString
+    console.log(handString, "hand string")
+    handString = ""
+  }
+}
+function renderScoreboard2(arr) {
+  let handString = ""
+  for(let i = 0; i < arr.length; i++){
+    let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
+    console.log(scoreboardKey, "scoreboard key")
+    let hand = scoreboard2[scoreboardKey]
+    console.log(hand, "hand")
+    for(prop in hand){
+      for(let i = 0; i < hand[prop]; i++){
+        handString = handString + prop
+    }
+    }
+    arr[i].textContent = handString
+    console.log(handString, "hand string")
     handString = ""
   }
 }
@@ -323,13 +339,18 @@ function scoreboardClickHandle(evt) {
   }
   console.log("scoreboard was clicked")
   placeHand(evt)
+  diceTally = {}
+  if(turn === 1){
+  renderScoreboard1(p1DisplayEls)
+} else if (turn === -1){
+  renderScoreboard2(p2DisplayEls)
+}
   turnOver = false
   changeTurn()
   resetLockBtns(lockBtnEls)
   resetDice(diceOnTable)
   rollCounter = 0
   endTurnBtn.classList.remove("true")
-  diceTally = {}
   render()
 }
 
