@@ -492,30 +492,39 @@ function upperHalfBonus(scoreboard) {
 }
 
 function scoreThreeOfAKind(scoreboard){
-//loop through key value pairs in scoreboard.threeofakind
-//leep track of what the highest value is
-//if value is at least three sum the total of all values
-//if value is lower than three return
 let valueTracker = 0
 let diceTotal = 0
 for(dice in scoreboard.threeofakind){
-  console.log(dice, "dice")
-  console.log(scoreboard.threeofakind[dice], "values")
   diceTotal = diceTotal + (dice * scoreboard.threeofakind[dice])
   if(scoreboard.threeofakind[dice] > valueTracker){
     valueTracker = scoreboard.threeofakind[dice]
   }
 }
-console.log(valueTracker, "value tracker")
-console.log(diceTotal, "dice total")
 if(valueTracker >= 3){
   scoreboard.threeOfAKindValue = diceTotal
 } else return
 }
 
 function scoreFourOfAKind(scoreboard){
-
+let valueTracker = 0
+let diceTotal = 0
+for(dice in scoreboard.fourofakind){
+  console.log(dice, "dice")
+  console.log(scoreboard.fourofakind[dice], "values")
+  diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
+  if(scoreboard.fourofakind[dice] > valueTracker){
+    valueTracker = scoreboard.fourofakind[dice]
+  }
 }
+console.log(valueTracker, "value tracker")
+console.log(diceTotal, "dice total")
+if(valueTracker >= 4){
+  scoreboard.fourOfAKindValue = diceTotal
+} else return
+}
+
+
+
 function scoreFullHouse(scoreboard){
 
 }
@@ -540,6 +549,7 @@ function calculateScore(scoreboard, score){
   scoreSixes(scoreboard)
   upperHalfBonus(scoreboard)
   scoreThreeOfAKind(scoreboard)
+  scoreFourOfAKind(scoreboard)
   addScore(score, scoreboard)
 }
 
