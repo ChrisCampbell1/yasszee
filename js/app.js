@@ -3,16 +3,14 @@
 let player1Name = "Tixie"
 let player2Name = "Katya"
 
-//todo restart button needs to be fixed to reset everything on the board
-//todo basic game functionality is working and storing dice talleys in the scoreboards, need to get the text content of the grids to display the dice talley values 
 /*---------------------------- Variables (state) ----------------------------*/
-let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, p1Score, p2Score
+let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
 
-let p1ScoreArr = []
-let p2ScoreArr = []
+let p1Score = scoreboard1.acesValue + scoreboard1.twosValue + scoreboard1.threesValue + scoreboard1.foursValue + scoreboard1.fivesValue + scoreboard1.sixesValue + scoreboard1.threeOfAKindValue + scoreboard1.fourOfAKindValue + scoreboard1.fullHouseValue + scoreboard1.smallStraightValue + scoreboard1.largeStraightValue + scoreboard1.yasszeeValue + scoreboard1.chanceValue
+
+let p2Score = scoreboard2.acesValue + scoreboard2.twosValue + scoreboard2.threesValue + scoreboard2.foursValue + scoreboard2.fivesValue + scoreboard2.sixesValue + scoreboard2.threeOfAKindValue + scoreboard2.fourOfAKindValue + scoreboard2.fullHouseValue + scoreboard2.smallStraightValue + scoreboard2.largeStraightValue + scoreboard2.yasszeeValue + scoreboard2.chanceValue
 
 let diceTally = {}
-
 
 let scoreboard1 = {
   aces: null,
@@ -28,6 +26,19 @@ let scoreboard1 = {
   largeStraight: null,
   yasszee: null,
   chance: null,
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0
 }
 
 let scoreboard2 = {
@@ -44,6 +55,19 @@ let scoreboard2 = {
   largeStraight: null,
   yasszee: null,
   chance: null,
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0
 }
 //dice variables
 let die0 = {
@@ -126,6 +150,19 @@ function init() {
   largestraight: null,
   yasszee: null,
   chance: null,
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0
   }
   scoreboard2 = {
   aces: null,
@@ -141,6 +178,19 @@ function init() {
   largestraight: null,
   yasszee: null,
   chance: null,
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0
   }
   die0 = {
     value: 0,
@@ -386,12 +436,12 @@ function endTurnHandle(evt) {
 
 /*------------------------ scoring functions -----------------------------*/
 
-function scoreAces(obj,arr){
-  let acesValue = obj.aces[1] * 1
-  if (acesValue === NaN){
-    acesValue = 0
+function scoreAces(obj){
+  if (obj.aces === null || obj.aces[1] === undefined){
+    return
   }
-  arr.push(acesValue)
+  let acesValue = obj.aces[1] * 1
+  obj.acesValue = acesValue
 }
 function scoreTwos(obj,arr){
   let twosValue = obj.twos[2] * 2
@@ -434,14 +484,13 @@ function scoreYasszee(obj){
 function scoreChance(obj){
 
 }
-function calculateScore(obj,arr){
-  scoreAces(obj,arr)
+function calculateScore(obj){
+  scoreAces(obj)
   // scoreTwos(obj,arr)
   // scoreThrees(obj,arr)
   // scoreFours(obj,arr)
   // scoreFives(obj,arr)
   // scoreSixes(obj,arr)
-  console.log(p1ScoreArr)
 }
 
 
