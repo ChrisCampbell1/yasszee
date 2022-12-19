@@ -449,11 +449,11 @@ function scoreTwos(scoreboard){
   scoreboard.twosValue = twosValue
 }
 function scoreThrees(scoreboard){
-  if(scoreboard.aces[1] === undefined){
+  if(scoreboard.threes[3] === undefined){
     return
   }
-  let acesValue = scoreboard.aces[1] * 1
-  scoreboard.acesValue = acesValue
+  let threesValue = scoreboard.threes[3] * 3
+  scoreboard.threesValue = threesValue
 }
 function scoreFours(scoreboard){
   if(scoreboard.aces[1] === undefined){
@@ -504,6 +504,7 @@ function scoreChance(obj){
 function calculateScore(scoreboard, score){
   scoreAces(scoreboard)
   scoreTwos(scoreboard)
+  scoreThrees(scoreboard)
   // scoreTwos(obj,arr)
   // scoreThrees(obj,arr)
   // scoreFours(obj,arr)
