@@ -82,6 +82,7 @@ const scoreboard1El = document.querySelector("#player-one-scoreboard")
 const scoreboard2El = document.querySelector("#player-two-scoreboard")
 const dieEl = document.querySelectorAll(".table-die")
 const rollCountEl = document.querySelector("#roll-count")
+const turnCountEl = document.querySelector("#round-count")
 const lockBtnEls = document.querySelectorAll(".lock-btn")
 const p1DisplayEls = document.querySelectorAll("td.p1")
 const p2DisplayEls = document.querySelectorAll("td.p2")
@@ -169,6 +170,7 @@ function init() {
 
 function render() {
 rollCountEl.textContent = rollCounter
+turnCountEl.textContent = roundCounter
 displayMessage()
 renderDice(diceOnTable)
 }
@@ -297,6 +299,7 @@ function renderScoreboard1(arr) {
     handString = ""
   }
 }
+
 function renderScoreboard2(arr) {
   let handString = ""
   for(let i = 0; i < arr.length; i++){
@@ -346,6 +349,9 @@ function scoreboardClickHandle(evt) {
   renderScoreboard2(p2DisplayEls)
 }
   turnOver = false
+  if(turn === -1){
+    roundCounter++
+  }
   changeTurn()
   resetLockBtns(lockBtnEls)
   resetDice(diceOnTable)
@@ -355,6 +361,9 @@ function scoreboardClickHandle(evt) {
 }
 
 function endTurnHandle(evt) {
+  if(rollCounter === 0){
+    return
+  }
   evt.target.classList.add("true")
   tallyDice(diceOnTable)
   turnOver = true
