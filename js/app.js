@@ -580,8 +580,8 @@ function scoreYasszee(scoreboard){
 
 function scoreChance(scoreboard){
   let diceTotal = 0
-  for(dice in scoreboard.fourofakind){
-    diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
+  for(dice in scoreboard.chance){
+    diceTotal = diceTotal + (dice * scoreboard.chance[dice])
   }
   scoreboard.chanceValue = diceTotal
 }
