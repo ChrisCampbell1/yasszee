@@ -523,11 +523,25 @@ if(valueTracker >= 4){
 } else return
 }
 
-
-
 function scoreFullHouse(scoreboard){
-
+let highestValueTracker = 0
+let nextHighestValueTracker = 0
+for(dice in scoreboard.fullhouse){
+  console.log("for in is running")
+  if(scoreboard.fullhouse[dice] > highestValueTracker){
+    highestValueTracker = scoreboard.fullhouse[dice]
+  } else if (scoreboard.fullhouse[dice] <= highestValueTracker){
+    nextHighestValueTracker = scoreboard.fullhouse[dice]
+  }
 }
+console.log(highestValueTracker, "hightest")
+console.log(nextHighestValueTracker, "next hightest")
+if(highestValueTracker === 3 && nextHighestValueTracker === 2){
+  scoreboard.fullHouseValue = 25
+  console.log(scoreboard.fullHouseValue, "value")
+} else return
+}
+
 function scoreSmallStraight(scoreboard){
 
 }
@@ -550,6 +564,7 @@ function calculateScore(scoreboard, score){
   upperHalfBonus(scoreboard)
   scoreThreeOfAKind(scoreboard)
   scoreFourOfAKind(scoreboard)
+  scoreFullHouse(scoreboard)
   addScore(score, scoreboard)
 }
 
