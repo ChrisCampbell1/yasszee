@@ -6,7 +6,10 @@ let player2Name = "Katya"
 //todo restart button needs to be fixed to reset everything on the board
 //todo basic game functionality is working and storing dice talleys in the scoreboards, need to get the text content of the grids to display the dice talley values 
 /*---------------------------- Variables (state) ----------------------------*/
-let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
+let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, p1Score, p2Score
+
+let p1ScoreArr = []
+let p2ScoreArr = []
 
 let diceTally = {}
 
@@ -99,6 +102,8 @@ scoreboard2El.addEventListener("click", scoreboardClickHandle)
 init()
 
 function init() {
+  p1score = 0
+  p2score = 0
   turnOver = false
   roundCounter = 1
   rollCounter = 0
@@ -283,10 +288,8 @@ function placeHand(evt) {
   let scoreboardKey = evt.target.textContent.toLowerCase().replaceAll(" ", "")
   if (turn === 1){
       scoreboard1[scoreboardKey] = diceTally
-      console.log(scoreboard1)
   } else if (turn === -1){
     scoreboard2[scoreboardKey] = diceTally
-    console.log(scoreboard2)
   }
 }
 
@@ -294,16 +297,13 @@ function renderScoreboard1(arr) {
   let handString = ""
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
-    console.log(scoreboardKey, "scoreboard key")
     let hand = scoreboard1[scoreboardKey]
-    console.log(hand, "hand")
     for(prop in hand){
       for(let i = 0; i < hand[prop]; i++){
         handString = handString + prop
     }
     }
     arr[i].textContent = handString
-    console.log(handString, "hand string")
     handString = ""
   }
 }
@@ -312,16 +312,13 @@ function renderScoreboard2(arr) {
   let handString = ""
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
-    console.log(scoreboardKey, "scoreboard key")
     let hand = scoreboard2[scoreboardKey]
-    console.log(hand, "hand")
     for(prop in hand){
       for(let i = 0; i < hand[prop]; i++){
         handString = handString + prop
     }
     }
     arr[i].textContent = handString
-    console.log(handString, "hand string")
     handString = ""
   }
 }
@@ -385,6 +382,71 @@ function endTurnHandle(evt) {
   tallyDice(diceOnTable)
   turnOver = true
 }
+
+
+/*------------------------ scoring functions -----------------------------*/
+
+function scoreAces(obj,arr){
+  let acesValue = obj.aces[1] * 1
+  if (acesValue === NaN){
+    acesValue = 0
+  }
+  arr.push(acesValue)
+}
+function scoreTwos(obj,arr){
+  let twosValue = obj.twos[2] * 2
+  arr.push(twosValue)
+}
+function scoreThrees(obj,arr){
+  let threesValue = obj.threes[3] * 3
+  arr.push(threesValue)
+}
+function scoreFours(obj,arr){
+  let foursValue = obj.fours[4] * 4
+  arr.push(foursValue)
+}
+function scoreFives(obj,arr){
+  let fivesValue = obj.fives[5] * 5
+  arr.push(fivesValue)
+}
+function scoreSixes(obj,arr){
+  let sixesValue = obj.sixes[6] * 6
+  arr.push(sixesValue)
+}
+function scoreThreeOfAKind(obj){
+
+}
+function scoreFourOfAKind(obj){
+
+}
+function scoreFullHouse(obj){
+
+}
+function scoreSmallStraight(obj){
+
+}
+function scoreLargeStraight(obj){
+
+}
+function scoreYasszee(obj){
+
+}
+function scoreChance(obj){
+
+}
+function calculateScore(obj,arr){
+  scoreAces(obj,arr)
+  // scoreTwos(obj,arr)
+  // scoreThrees(obj,arr)
+  // scoreFours(obj,arr)
+  // scoreFives(obj,arr)
+  // scoreSixes(obj,arr)
+  console.log(p1ScoreArr)
+}
+
+
+
+
 
 /*------------------------ Minimum Requirements -----------------------------*/
 // - **Render a game in the browser**. You may not use Canvas or jQuery.
