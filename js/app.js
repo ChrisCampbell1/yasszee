@@ -492,66 +492,66 @@ function upperHalfBonus(scoreboard) {
 }
 
 function scoreThreeOfAKind(scoreboard){
-let valueTracker = 0
-let diceTotal = 0
-for(dice in scoreboard.threeofakind){
-  diceTotal = diceTotal + (dice * scoreboard.threeofakind[dice])
-  if(scoreboard.threeofakind[dice] > valueTracker){
-    valueTracker = scoreboard.threeofakind[dice]
+  let valueTracker = 0
+  let diceTotal = 0
+  for(dice in scoreboard.threeofakind){
+    diceTotal = diceTotal + (dice * scoreboard.threeofakind[dice])
+    if(scoreboard.threeofakind[dice] > valueTracker){
+      valueTracker = scoreboard.threeofakind[dice]
+    }
   }
-}
-if(valueTracker >= 3){
-  scoreboard.threeOfAKindValue = diceTotal
-} else return
+  if(valueTracker >= 3){
+    scoreboard.threeOfAKindValue = diceTotal
+  } else return
 }
 
 function scoreFourOfAKind(scoreboard){
-let valueTracker = 0
-let diceTotal = 0
-for(dice in scoreboard.fourofakind){
-  console.log(dice, "dice")
-  console.log(scoreboard.fourofakind[dice], "values")
-  diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
-  if(scoreboard.fourofakind[dice] > valueTracker){
-    valueTracker = scoreboard.fourofakind[dice]
+  let valueTracker = 0
+  let diceTotal = 0
+  for(dice in scoreboard.fourofakind){
+    console.log(dice, "dice")
+    console.log(scoreboard.fourofakind[dice], "values")
+    diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
+    if(scoreboard.fourofakind[dice] > valueTracker){
+      valueTracker = scoreboard.fourofakind[dice]
+    }
   }
-}
-console.log(valueTracker, "value tracker")
-console.log(diceTotal, "dice total")
-if(valueTracker >= 4){
-  scoreboard.fourOfAKindValue = diceTotal
-} else return
+  console.log(valueTracker, "value tracker")
+  console.log(diceTotal, "dice total")
+  if(valueTracker >= 4){
+    scoreboard.fourOfAKindValue = diceTotal
+  } else return
 }
 
 function scoreFullHouse(scoreboard){
-let highestValueTracker = 0
-let nextHighestValueTracker = 0
-for(dice in scoreboard.fullhouse){
-  console.log("for in is running")
-  if(scoreboard.fullhouse[dice] > highestValueTracker){
-    highestValueTracker = scoreboard.fullhouse[dice]
-  } else if (scoreboard.fullhouse[dice] <= highestValueTracker){
-    nextHighestValueTracker = scoreboard.fullhouse[dice]
+  let highestValueTracker = 0
+  let nextHighestValueTracker = 0
+  for(dice in scoreboard.fullhouse){
+    console.log("for in is running")
+    if(scoreboard.fullhouse[dice] > highestValueTracker){
+      highestValueTracker = scoreboard.fullhouse[dice]
+    } else if (scoreboard.fullhouse[dice] <= highestValueTracker){
+      nextHighestValueTracker = scoreboard.fullhouse[dice]
+    }
   }
-}
-console.log(highestValueTracker, "hightest")
-console.log(nextHighestValueTracker, "next hightest")
-if(highestValueTracker === 3 && nextHighestValueTracker === 2){
-  scoreboard.fullHouseValue = 25
-  console.log(scoreboard.fullHouseValue, "value")
-} else return
+  console.log(highestValueTracker, "hightest")
+  console.log(nextHighestValueTracker, "next hightest")
+  if(highestValueTracker === 3 && nextHighestValueTracker === 2){
+    scoreboard.fullHouseValue = 25
+    console.log(scoreboard.fullHouseValue, "value")
+  } else return
 }
 
 function scoreSmallStraight(scoreboard){
-  let valueTracker = 0
-  for(dice in scoreboard.smallStraight){
-    if(scoreboard.smallStraight[dice] > valueTracker){
-      valueTracker = scoreboard.smallStraight[dice]
-    }
-  }
-  if(valueTracker <= 2){
-    scoreboard.smallStraightValue = 30
-  } else return
+  // let valueTracker = 0
+  // for(dice in scoreboard.smallStraight){
+  //   if(scoreboard.smallStraight[dice] > valueTracker){
+  //     valueTracker = scoreboard.smallStraight[dice]
+  //   }
+  // }
+  // if(valueTracker <= 2){
+  //   scoreboard.smallStraightValue = 30
+  // } else return
 }
 
 function scoreLargeStraight(scoreboard){
@@ -567,11 +567,25 @@ function scoreLargeStraight(scoreboard){
 }
 
 function scoreYasszee(scoreboard){
-
+  let valueTracker = 0
+  for(dice in scoreboard.yasszee){
+    if(scoreboard.yasszee[dice] > valueTracker){
+      valueTracker = scoreboard.yasszee[dice]
+    }
+  }
+  if(valueTracker === 5){
+    scoreboard.yasszeeValue = 50
+  } else return
 }
+
 function scoreChance(scoreboard){
-
+  let diceTotal = 0
+  for(dice in scoreboard.fourofakind){
+    diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
+  }
+  scoreboard.chanceValue = diceTotal
 }
+
 function calculateScore(scoreboard, score){
   scoreAces(scoreboard)
   scoreTwos(scoreboard)
@@ -583,6 +597,10 @@ function calculateScore(scoreboard, score){
   scoreThreeOfAKind(scoreboard)
   scoreFourOfAKind(scoreboard)
   scoreFullHouse(scoreboard)
+  scoreSmallStraight(scoreboard)
+  scoreLargeStraight(scoreboard)
+  scoreYasszee(scoreboard)
+  scoreChance(scoreboard)
   addScore(score, scoreboard)
 }
 
