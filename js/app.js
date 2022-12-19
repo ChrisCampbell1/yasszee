@@ -164,6 +164,8 @@ function init() {
     die3,
     die4
   ]
+  renderScoreboard1(p1DisplayEls)
+  renderScoreboard2(p2DisplayEls)
   render()
   resetLockBtns(lockBtnEls)
 }
@@ -180,6 +182,9 @@ function displayMessage() {
 }
 
 function rollDiceHandle() {
+  if(gameInProgress === false){
+    return
+  }
   if(rollCounter >= 3 || turnOver === true){
     return
   }
@@ -196,6 +201,9 @@ function rollDice(arr) {
 }
 
 function lockDice(evt) {
+  if(gameInProgress === false){
+    return
+  }
   let divId = evt.path[1].id
   let diceId = divId.replace("die-","")
   if(diceOnTable[diceId].value === 0){
@@ -319,6 +327,9 @@ function renderScoreboard2(arr) {
 }
 
 function scoreboardClickHandle(evt) {
+  if(gameInProgress === false){
+    return
+  }
   if(turnOver === false){
     return
   }
@@ -357,10 +368,16 @@ function scoreboardClickHandle(evt) {
   resetDice(diceOnTable)
   rollCounter = 0
   endTurnBtn.classList.remove("true")
+  if (roundCounter === 13){
+    gameInProgress === false
+  }
   render()
 }
 
 function endTurnHandle(evt) {
+  if(gameInProgress === false){
+    return
+  }
   if(rollCounter === 0){
     return
   }
