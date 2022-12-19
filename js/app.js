@@ -6,10 +6,6 @@ let player2Name = "Katya"
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
 
-let p1Score = scoreboard1.acesValue + scoreboard1.twosValue + scoreboard1.threesValue + scoreboard1.foursValue + scoreboard1.fivesValue + scoreboard1.sixesValue + scoreboard1.threeOfAKindValue + scoreboard1.fourOfAKindValue + scoreboard1.fullHouseValue + scoreboard1.smallStraightValue + scoreboard1.largeStraightValue + scoreboard1.yasszeeValue + scoreboard1.chanceValue
-
-let p2Score = scoreboard2.acesValue + scoreboard2.twosValue + scoreboard2.threesValue + scoreboard2.foursValue + scoreboard2.fivesValue + scoreboard2.sixesValue + scoreboard2.threeOfAKindValue + scoreboard2.fourOfAKindValue + scoreboard2.fullHouseValue + scoreboard2.smallStraightValue + scoreboard2.largeStraightValue + scoreboard2.yasszeeValue + scoreboard2.chanceValue
-
 let diceTally = {}
 
 let scoreboard1 = {
@@ -99,6 +95,10 @@ let diceOnTable = [
   die4
 ]
 
+let p1Score = scoreboard1.acesValue + scoreboard1.twosValue + scoreboard1.threesValue + scoreboard1.foursValue + scoreboard1.fivesValue + scoreboard1.sixesValue + scoreboard1.threeOfAKindValue + scoreboard1.fourOfAKindValue + scoreboard1.fullHouseValue + scoreboard1.smallStraightValue + scoreboard1.largeStraightValue + scoreboard1.yasszeeValue + scoreboard1.chanceValue
+
+let p2Score = scoreboard2.acesValue + scoreboard2.twosValue + scoreboard2.threesValue + scoreboard2.foursValue + scoreboard2.fivesValue + scoreboard2.sixesValue + scoreboard2.threeOfAKindValue + scoreboard2.fourOfAKindValue + scoreboard2.fullHouseValue + scoreboard2.smallStraightValue + scoreboard2.largeStraightValue + scoreboard2.yasszeeValue + scoreboard2.chanceValue
+
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector("#message")
 const rollBtn = document.querySelector("#roll-btn")
@@ -126,8 +126,6 @@ scoreboard2El.addEventListener("click", scoreboardClickHandle)
 init()
 
 function init() {
-  p1score = 0
-  p2score = 0
   turnOver = false
   roundCounter = 1
   rollCounter = 0
@@ -436,33 +434,36 @@ function endTurnHandle(evt) {
 
 /*------------------------ scoring functions -----------------------------*/
 
-function scoreAces(obj){
-  if (obj.aces === null || obj.aces[1] === undefined){
+function scoreAces(scoreboard){
+  if(scoreboard.aces[1] === undefined){
     return
   }
-  let acesValue = obj.aces[1] * 1
-  obj.acesValue = acesValue
+  let acesValue = scoreboard.aces[1] * 1
+  scoreboard.acesValue = acesValue
 }
-function scoreTwos(obj,arr){
-  let twosValue = obj.twos[2] * 2
-  arr.push(twosValue)
-}
-function scoreThrees(obj,arr){
-  let threesValue = obj.threes[3] * 3
-  arr.push(threesValue)
-}
-function scoreFours(obj,arr){
-  let foursValue = obj.fours[4] * 4
-  arr.push(foursValue)
-}
-function scoreFives(obj,arr){
-  let fivesValue = obj.fives[5] * 5
-  arr.push(fivesValue)
-}
-function scoreSixes(obj,arr){
-  let sixesValue = obj.sixes[6] * 6
-  arr.push(sixesValue)
-}
+
+
+
+// function scoreTwos(obj,arr){
+//   let twosValue = obj.twos[2] * 2
+//   arr.push(twosValue)
+// }
+// function scoreThrees(obj,arr){
+//   let threesValue = obj.threes[3] * 3
+//   arr.push(threesValue)
+// }
+// function scoreFours(obj,arr){
+//   let foursValue = obj.fours[4] * 4
+//   arr.push(foursValue)
+// }
+// function scoreFives(obj,arr){
+//   let fivesValue = obj.fives[5] * 5
+//   arr.push(fivesValue)
+// }
+// function scoreSixes(obj,arr){
+//   let sixesValue = obj.sixes[6] * 6
+//   arr.push(sixesValue)
+// }
 function scoreThreeOfAKind(obj){
 
 }
@@ -484,13 +485,19 @@ function scoreYasszee(obj){
 function scoreChance(obj){
 
 }
-function calculateScore(obj){
-  scoreAces(obj)
+function calculateScore(scoreboard, score){
+  scoreAces(scoreboard)
+  scoreTwos(scoreboard)
   // scoreTwos(obj,arr)
   // scoreThrees(obj,arr)
   // scoreFours(obj,arr)
   // scoreFives(obj,arr)
   // scoreSixes(obj,arr)
+  addScore(score, scoreboard)
+}
+function addScore(score, scoreboard) {
+  score = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue
+  console.log(score)
 }
 
 
