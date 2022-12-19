@@ -441,29 +441,45 @@ function scoreAces(scoreboard){
   let acesValue = scoreboard.aces[1] * 1
   scoreboard.acesValue = acesValue
 }
+function scoreTwos(scoreboard){
+  if(scoreboard.twos[2] === undefined){
+    return
+  }
+  let twosValue = scoreboard.twos[2] * 2
+  scoreboard.twosValue = twosValue
+}
+function scoreThrees(scoreboard){
+  if(scoreboard.aces[1] === undefined){
+    return
+  }
+  let acesValue = scoreboard.aces[1] * 1
+  scoreboard.acesValue = acesValue
+}
+function scoreFours(scoreboard){
+  if(scoreboard.aces[1] === undefined){
+    return
+  }
+  let acesValue = scoreboard.aces[1] * 1
+  scoreboard.acesValue = acesValue
+}
+function scoreFives(scoreboard){
+  if(scoreboard.aces[1] === undefined){
+    return
+  }
+  let acesValue = scoreboard.aces[1] * 1
+  scoreboard.acesValue = acesValue
+}
+function scoreSixes(scoreboard){
+  if(scoreboard.aces[1] === undefined){
+    return
+  }
+  let acesValue = scoreboard.aces[1] * 1
+  scoreboard.acesValue = acesValue
+}
 
 
 
-// function scoreTwos(obj,arr){
-//   let twosValue = obj.twos[2] * 2
-//   arr.push(twosValue)
-// }
-// function scoreThrees(obj,arr){
-//   let threesValue = obj.threes[3] * 3
-//   arr.push(threesValue)
-// }
-// function scoreFours(obj,arr){
-//   let foursValue = obj.fours[4] * 4
-//   arr.push(foursValue)
-// }
-// function scoreFives(obj,arr){
-//   let fivesValue = obj.fives[5] * 5
-//   arr.push(fivesValue)
-// }
-// function scoreSixes(obj,arr){
-//   let sixesValue = obj.sixes[6] * 6
-//   arr.push(sixesValue)
-// }
+
 function scoreThreeOfAKind(obj){
 
 }
