@@ -491,27 +491,44 @@ function upperHalfBonus(scoreboard) {
   scoreboard.upperHalfBonus = 35
 }
 
+function scoreThreeOfAKind(scoreboard){
+//loop through key value pairs in scoreboard.threeofakind
+//leep track of what the highest value is
+//if value is at least three sum the total of all values
+//if value is lower than three return
+let valueTracker = 0
+let diceTotal = 0
+for(dice in scoreboard.threeofakind){
+  console.log(dice, "dice")
+  console.log(scoreboard.threeofakind[dice], "values")
+  diceTotal = diceTotal + (dice * scoreboard.threeofakind[dice])
+  if(scoreboard.threeofakind[dice] > valueTracker){
+    valueTracker = scoreboard.threeofakind[dice]
+  }
+}
+console.log(valueTracker, "value tracker")
+console.log(diceTotal, "dice total")
+if(valueTracker >= 3){
+  scoreboard.threeOfAKindValue = diceTotal
+} else return
+}
 
-
-function scoreThreeOfAKind(obj){
+function scoreFourOfAKind(scoreboard){
 
 }
-function scoreFourOfAKind(obj){
+function scoreFullHouse(scoreboard){
 
 }
-function scoreFullHouse(obj){
+function scoreSmallStraight(scoreboard){
 
 }
-function scoreSmallStraight(obj){
+function scoreLargeStraight(scoreboard){
 
 }
-function scoreLargeStraight(obj){
+function scoreYasszee(scoreboard){
 
 }
-function scoreYasszee(obj){
-
-}
-function scoreChance(obj){
+function scoreChance(scoreboard){
 
 }
 function calculateScore(scoreboard, score){
@@ -522,8 +539,10 @@ function calculateScore(scoreboard, score){
   scoreFives(scoreboard)
   scoreSixes(scoreboard)
   upperHalfBonus(scoreboard)
+  scoreThreeOfAKind(scoreboard)
   addScore(score, scoreboard)
 }
+
 function addScore(score, scoreboard) {
   score = scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue + scoreboard.threeOfAKindValue + scoreboard.fourOfAKindValue + scoreboard.fullHouseValue + scoreboard.smallStraightValue + scoreboard.largeStraightValue + scoreboard.yasszeeValue + scoreboard.chanceValue + scoreboard.upperHalfBonus
   console.log(score)
