@@ -17,9 +17,9 @@ let scoreboard1 = {
   sixes: null,
   threeofakind: null,
   fourofakind: null,
-  fullHouse: null,
-  smallStraight: null,
-  largeStraight: null,
+  fullhouse: null,
+  smallstraight: null,
+  largestraight: null,
   yasszee: null,
   chance: null,
   acesValue: 0,
@@ -47,9 +47,9 @@ let scoreboard2 = {
   sixes: null,
   threeofakind: null,
   fourofakind: null,
-  fullHouse: null,
-  smallStraight: null,
-  largeStraight: null,
+  fullhouse: null,
+  smallstraight: null,
+  largestraight: null,
   yasszee: null,
   chance: null,
   acesValue: 0,
@@ -543,15 +543,9 @@ function scoreFullHouse(scoreboard){
 }
 
 function scoreSmallStraight(scoreboard){
-  // let valueTracker = 0
-  // for(dice in scoreboard.smallStraight){
-  //   if(scoreboard.smallStraight[dice] > valueTracker){
-  //     valueTracker = scoreboard.smallStraight[dice]
-  //   }
-  // }
-  // if(valueTracker <= 2){
-  //   scoreboard.smallStraightValue = 30
-  // } else return
+  if((scoreboard.smallstraight.hasOwnProperty("1") && scoreboard.smallstraight.hasOwnProperty("2") && scoreboard.smallstraight.hasOwnProperty("3") && scoreboard.smallstraight.hasOwnProperty("4")) || (scoreboard.smallstraight.hasOwnProperty("2") && scoreboard.smallstraight.hasOwnProperty("3") && scoreboard.smallstraight.hasOwnProperty("4") && scoreboard.smallstraight.hasOwnProperty("5")) || (scoreboard.smallstraight.hasOwnProperty("3") && scoreboard.smallstraight.hasOwnProperty("4") && scoreboard.smallstraight.hasOwnProperty("5") && scoreboard.smallstraight.hasOwnProperty("6"))){
+    scoreboard.smallStraightValue = 30
+  } else return
 }
 
 function scoreLargeStraight(scoreboard){
