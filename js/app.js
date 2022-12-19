@@ -543,11 +543,29 @@ if(highestValueTracker === 3 && nextHighestValueTracker === 2){
 }
 
 function scoreSmallStraight(scoreboard){
-
+  let valueTracker = 0
+  for(dice in scoreboard.smallStraight){
+    if(scoreboard.smallStraight[dice] > valueTracker){
+      valueTracker = scoreboard.smallStraight[dice]
+    }
+  }
+  if(valueTracker <= 2){
+    scoreboard.smallStraightValue = 30
+  } else return
 }
+
 function scoreLargeStraight(scoreboard){
-
+  let valueTracker = 0
+  for(dice in scoreboard.largeStraight){
+    if(scoreboard.largeStraight[dice] > valueTracker){
+      valueTracker = scoreboard.largeStraight[dice]
+    }
+  }
+  if(valueTracker === 1){
+    scoreboard.largeStraightValue = 40
+  } else return
 }
+
 function scoreYasszee(scoreboard){
 
 }
