@@ -441,6 +441,7 @@ function scoreAces(scoreboard){
   let acesValue = scoreboard.aces[1] * 1
   scoreboard.acesValue = acesValue
 }
+
 function scoreTwos(scoreboard){
   if(scoreboard.twos[2] === undefined){
     return
@@ -448,6 +449,7 @@ function scoreTwos(scoreboard){
   let twosValue = scoreboard.twos[2] * 2
   scoreboard.twosValue = twosValue
 }
+
 function scoreThrees(scoreboard){
   if(scoreboard.threes[3] === undefined){
     return
@@ -455,26 +457,29 @@ function scoreThrees(scoreboard){
   let threesValue = scoreboard.threes[3] * 3
   scoreboard.threesValue = threesValue
 }
+
 function scoreFours(scoreboard){
-  if(scoreboard.aces[1] === undefined){
+  if(scoreboard.fours[4] === undefined){
     return
   }
-  let acesValue = scoreboard.aces[1] * 1
-  scoreboard.acesValue = acesValue
+  let foursValue = scoreboard.fours[4] * 4
+  scoreboard.foursValue = foursValue
 }
+
 function scoreFives(scoreboard){
-  if(scoreboard.aces[1] === undefined){
+  if(scoreboard.fives[5] === undefined){
     return
   }
-  let acesValue = scoreboard.aces[1] * 1
-  scoreboard.acesValue = acesValue
+  let fivesValue = scoreboard.fives[5] * 5
+  scoreboard.fivesValue = fivesValue
 }
+
 function scoreSixes(scoreboard){
-  if(scoreboard.aces[1] === undefined){
+  if(scoreboard.sixes[6] === undefined){
     return
   }
-  let acesValue = scoreboard.aces[1] * 1
-  scoreboard.acesValue = acesValue
+  let sixesValue = scoreboard.sixes[6] * 6
+  scoreboard.sixesValue = sixesValue
 }
 
 
@@ -505,11 +510,9 @@ function calculateScore(scoreboard, score){
   scoreAces(scoreboard)
   scoreTwos(scoreboard)
   scoreThrees(scoreboard)
-  // scoreTwos(obj,arr)
-  // scoreThrees(obj,arr)
-  // scoreFours(obj,arr)
-  // scoreFives(obj,arr)
-  // scoreSixes(obj,arr)
+  scoreFours(scoreboard)
+  scoreFives(scoreboard)
+  scoreSixes(scoreboard)
   addScore(score, scoreboard)
 }
 function addScore(score, scoreboard) {
