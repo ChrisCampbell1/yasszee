@@ -90,3 +90,8 @@ body {
 button.true {
   color: red;
 }
+
+td.p1 {
+  font-family: "dice";
+  font-size: 36px;
+}

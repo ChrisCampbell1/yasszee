@@ -3,7 +3,8 @@
 let player1Name = "Tixie"
 let player2Name = "Katya"
 
-
+//todo restart button needs to be fixed to reset everything on the board
+//todo basic game functionality is working and storing dice talleys in the scoreboards, need to get the text content of the grids to display the dice talley values 
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
 
@@ -82,6 +83,7 @@ const scoreboard2El = document.querySelector("#player-two-scoreboard")
 const dieEl = document.querySelectorAll(".table-die")
 const rollCountEl = document.querySelector("#roll-count")
 const lockBtnEls = document.querySelectorAll(".lock-btn")
+const p1DisplayEls = document.querySelectorAll("td.p1")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
@@ -274,6 +276,26 @@ function placeHand(evt) {
   } else if (turn === -1){
     scoreboard2[scoreboardKey] = diceTally
     console.log(scoreboard2)
+  }
+}
+
+function renderScoreboard(arr) {
+  //itterate through the p1displayels
+  //take the id of the el and look it up in the scoreboard object
+  //set the text content to the value that matches the key in the scoreboard object
+  let handString = ""
+  for(let i = 0; i < arr.length; i++){
+    let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
+    console.log(scoreboardKey)
+    let hand = scoreboard1[scoreboardKey]
+    for(prop in hand){
+      for(let i = 0; i < hand[prop]; i++){
+        handString = handString + prop
+        console.log(handString)
+    }
+    }
+    arr[i].textContent = handString
+    handString = ""
   }
 }
 
