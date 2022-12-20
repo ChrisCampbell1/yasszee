@@ -1,10 +1,8 @@
 /*--------------------------------Constants----------------------------*/
 
-let player1Name = "Tixie"
-let player2Name = "Katya"
 
 /*---------------------------- Variables (state) ----------------------------*/
-let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver
+let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
 
 let diceTally = {}
 
@@ -119,6 +117,11 @@ const p1ScoreEl = document.querySelector("#p1-score")
 const p2ScoreEl = document.querySelector("#p2-score")
 const startBtn = document.querySelector("#start")
 const modalEl = document.querySelector("#modal")
+const queensGridEl = document.querySelector("#queens-grid")
+const p1AvatarEl = document.querySelector("#p1-avatar")
+const p2AvatarEl = document.querySelector("#p2-avatar")
+const p1DisplayNameEl = document.querySelector("#p1-display-name")
+const p2DisplayNameEl = document.querySelector("#p2-display-name")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
@@ -128,6 +131,8 @@ endTurnBtn.addEventListener("click", endTurnHandle)
 scoreboard1El.addEventListener("click", scoreboardClickHandle)
 scoreboard2El.addEventListener("click", scoreboardClickHandle)
 startBtn.addEventListener("click", closeModal)
+queensGridEl.addEventListener("click", queenClickHandle)
+
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -640,11 +645,32 @@ function addScore(scoreboard) {
 }
 
 /*------------------------ modal functions -----------------------------*/
-function closeModal(){
+function closeModal() {
   modalEl.classList.add("closed")
 }
 
+function queenClickHandle (evt){
+  if(evt.target.classList.contains("selection")) {
+    if(evt.target.classList.contains("p1Choice")) {
+      player1Name = evt.target.parentElement.id
+      player1Name = player1Name.charAt(0).toUpperCase() + player1Name.slice(1)
+      evt.target.classList.add("true")
+      p1AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
+      p1DisplayNameEl.textContent = player1Name
+      render()
+    } else if(evt.target.classList.contains("p2Choice")) {
+      player2Name = evt.target.parentElement.id
+      player2Name = player2Name.charAt(0).toUpperCase() + player2Name.slice(1)
+      evt.target.classList.add("true")
+      p2AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
+      p2DisplayNameEl.textContent = player2Name
+      render()
+    }
+  } return
+}
 
+function updatePlayer(evt) {
+}
 
 /*------------------------ Minimum Requirements -----------------------------*/
 //// - **Render a game in the browser**. You may not use Canvas or jQuery.
