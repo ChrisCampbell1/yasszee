@@ -16,25 +16,9 @@
   <title>YASSZEE</title>
 </head>
 <body>
-  <div id="sub-header">
-    <div class="player-info">
-      <img src="./assets/trixie.png" alt="trixie mattel fan art" width="200px">
-      <h2>Player 1</h2>
-    </div>
-    <div id="gameinfo">
-      <img id="title-image" src="./assets/Yasszee (500 × 300 px) centered.png" alt="YASSZEE logo">
-      <h2 id="message">turn/winner message</h2>
-      <h3>Roll Count</h3>
-      <p id="roll-count"></p>
-      <h3>Round</h3>
-      <p id="round-count"></p>
-    </div>
-    <div class="player-info">
-      <img src="./assets/katya.png" alt="katya fan art" width="200px">
-      <h2>Player 2</h2>
-    </div>
-  </div>
-  <div id="gameboard">
+  <div class="player" id="player-1">
+    <img src="./assets/trixie.png" alt="trixie mattel fan art" width="200px">
+    <h2>Player 1</h2>
     <div id="player-one-scoreboard" class="scoreboard">
       <table>
         <thead>
@@ -110,6 +94,14 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div id="center">
+    <img id="title-image" src="./assets/Yasszee (500 × 300 px) centered.png" alt="YASSZEE logo">
+    <h2 id="message">turn/winner message</h2>
+    <h3>Roll Count</h3>
+    <p id="roll-count"></p>
+    <h3>Round</h3>
+    <p id="round-count"></p>
     <div id="play-area">
       <div id="table-dice">
         <div class="table-die" id="die-0">
@@ -137,6 +129,10 @@
       <button id="end-turn-btn">End Turn</button>
       <button id="restart-btn">Restart</button>
     </div>
+  </div>
+  <div class ="player" id="player-2">
+    <img src="./assets/katya.png" alt="katya fan art" width="200px">
+    <h2>Player 2</h2>
     <div id="player-two-scoreboard" class="scoreboard">
       <table>
         <thead>

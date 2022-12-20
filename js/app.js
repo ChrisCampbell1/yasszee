@@ -266,6 +266,9 @@ function rollDice(arr) {
     }
   } renderDice(diceOnTable)
   rollIncrement()
+  // if(rollCounter >= 3){
+  //   endTurnHandle(evt)
+  // }
 }
 
 function lockDice(evt) {
