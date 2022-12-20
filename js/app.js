@@ -115,6 +115,8 @@ const turnCountEl = document.querySelector("#round-count")
 const lockBtnEls = document.querySelectorAll(".lock-btn")
 const p1DisplayEls = document.querySelectorAll("td.p1")
 const p2DisplayEls = document.querySelectorAll("td.p2")
+const p1ScoreEl = document.querySelector("#p1-score")
+const p2ScoreEl = document.querySelector("#p2-score")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
@@ -452,6 +454,8 @@ function endGame() {
     calculateScore(scoreboard2, p2Score)
     p1Score = addScore(scoreboard1)
     p2Score = addScore(scoreboard2)
+    p1ScoreEl.textContent = p1Score
+    p2ScoreEl.textContent = p2Score
   } if(p1Score === p2Score){
     tie = true
   }
