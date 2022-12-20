@@ -67,13 +67,11 @@ p {
 
 .scoreboard{
   width: auto;
-  border: 1px solid black;
   
 }
 #play-area {
   display: flex;
   flex-direction: column;
-  background-color: black;
   font-family: "dice";
   font-size: 48px;
   align-items: center;
@@ -134,6 +132,12 @@ button {
 
 button.p1, button.p2 {
   width: 100%;
+}
+
+button.p1:hover, button.p2:hover {
+  width: 100%;
+  background-color: #ffb3e1;
+  font-weight: bold;
 }
 
 button#roll-btn, button#end-turn-btn, button#restart-btn{
