@@ -441,6 +441,9 @@ function endTurnHandle(evt) {
   if(rollCounter === 0){
     return
   }
+  if(turnOver === true){
+    return
+  }
   evt.target.classList.add("true")
   tallyDice(diceOnTable)
   turnOver = true
