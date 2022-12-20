@@ -641,10 +641,10 @@ function addScore(scoreboard) {
 
 /*------------------------ Minimum Requirements -----------------------------*/
 //// - **Render a game in the browser**. You may not use Canvas or jQuery.
-// - **Include win/loss logic and render win/loss messages in HTML.** You may not use alerts or prompt anywhere in your application.
+//// - **Include win/loss logic and render win/loss messages in HTML.** You may not use alerts or prompt anywhere in your application.
 // - Include separate HTML, CSS, JavaScript, and JavaScript Data files.
 // - Be grammatically correct and be free of spelling errors.
-// - Display a favicon.
+//// - Display a favicon.
 //// - Use CSS Flexbox or Grid.
 // - Look and feel similar to apps we use daily - it has should have a consistent and polished user interface and offers a positive user experience, including accessibility features.
 // - Have no remaining dead or commented out code, or console logs.
