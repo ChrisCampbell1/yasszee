@@ -49,6 +49,11 @@ body {
   align-items: center;
 }
 
+#modal.closed {
+  opacity: 0;
+  visibility: hidden;
+}
+
 #modal-logo{
   width: 30%;
   margin-bottom: -50px;
@@ -58,6 +63,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .queen {

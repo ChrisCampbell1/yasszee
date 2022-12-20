@@ -117,6 +117,8 @@ const p1DisplayEls = document.querySelectorAll("td.p1")
 const p2DisplayEls = document.querySelectorAll("td.p2")
 const p1ScoreEl = document.querySelector("#p1-score")
 const p2ScoreEl = document.querySelector("#p2-score")
+const startBtn = document.querySelector("#start")
+const modalEl = document.querySelector("#modal")
 
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
@@ -125,11 +127,13 @@ tableDiceEl.addEventListener("click", lockDice)
 endTurnBtn.addEventListener("click", endTurnHandle)
 scoreboard1El.addEventListener("click", scoreboardClickHandle)
 scoreboard2El.addEventListener("click", scoreboardClickHandle)
+startBtn.addEventListener("click", closeModal)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init() {
+  modalEl.classList.remove("closed")
   p1Score = 0
   p2Score = 0
   turnOver = false
@@ -635,7 +639,10 @@ function addScore(scoreboard) {
   return total
 }
 
-
+/*------------------------ modal functions -----------------------------*/
+function closeModal(){
+  modalEl.classList.add("closed")
+}
 
 
 
