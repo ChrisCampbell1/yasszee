@@ -50,7 +50,7 @@ body {
 }
 
 #modal-logo{
-  width: 50%;
+  width: 30%;
   margin-bottom: -50px;
 }
 
@@ -71,7 +71,8 @@ body {
 }
 
 .queen img {
-  width: 150px;
+  /* width: 150px; */
+  height: 150px;
 }
 
 .player, .center {
