@@ -34,6 +34,18 @@ body {
   color: aliceblue;
 }
 
+h2{
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
 #title-image{
   margin-bottom: -50px;
 }
@@ -50,6 +62,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .scoreboard{
@@ -62,7 +75,8 @@ body {
   flex-direction: column;
   background-color: black;
   font-family: "dice";
-  font-size: 36px;
+  font-size: 48px;
+  align-items: center;
 }
 
 #play-area button {
@@ -73,6 +87,11 @@ body {
   display: flex;
   flex-direction: row;
   color: white;
+}
+
+#table-dice div {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .table-die {
@@ -88,16 +107,35 @@ body {
   color: black;
 } */
 
-.locked {
-  color: red;
+.locked, .true{
+  background-color: #ffb3e1;
+  font-weight: bold;
   after: 
 }
 
-button.true {
+/* button.true {
   color: red;
+} */
+
+th, td {
+  font-size: 14px;
 }
 
 td.p1, td.p2 {
   font-family: "dice";
   font-size: 36px;
+}
+
+button {
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+button.p1, button.p2 {
+  width: 100%;
+}
+
+button#roll-btn, button#end-turn-btn, button#restart-btn{
+  width: 60%;
 }
