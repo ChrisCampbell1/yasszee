@@ -678,6 +678,22 @@ function playCharacterSound() {
     yasszeeAudio.playAjaSound()
   } else if(player1Name === "Alyssa" || player2Name === "Alyssa") {
     yasszeeAudio.playAlyssaSound()
+  } else if(player1Name === "Bendelacreme" || player2Name === "Bendelacreme") {
+    yasszeeAudio.playBendelaSound()
+  } else if(player1Name === "Jinkx" || player2Name === "Jinkx") {
+    yasszeeAudio.playJinkxSound()
+  } else if(player1Name === "Katya" || player2Name === "Katya") {
+    yasszeeAudio.playKatyaSound()
+  } else if(player1Name === "Laganja" || player2Name === "Laganja") {
+    yasszeeAudio.playLaganjaSound()
+  } else if(player1Name === "Latrice" || player2Name === "Latrice") {
+    yasszeeAudio.playLatriceSound()
+  } else if(player1Name === "Shangela" || player2Name === "Shangela") {
+    yasszeeAudio.playShangelaSound()
+  } else if(player1Name === "Tatianna" || player2Name === "Tatianna") {
+    yasszeeAudio.playTatiannaSound()
+  } else if(player1Name === "Trixie" || player2Name === "Trixie") {
+    yasszeeAudio.playTrixieSound()
   }
 }
 

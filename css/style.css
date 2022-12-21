@@ -189,3 +189,8 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   padding-top: 3px;
   padding-bottom: 3px;
 }
+
+/* #p1-avatar, #p2-avatar {
+  height: 200px;
+  width: 200px;
+} */
