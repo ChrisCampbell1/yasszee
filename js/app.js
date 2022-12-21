@@ -1,5 +1,7 @@
 /*--------------------------------Constants----------------------------*/
-import * as yasszeeAudio from "../js/audio.js"
+
+import * as yasszeeAudio from "./audio.js"
+
 
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
@@ -657,6 +659,7 @@ function queenClickHandle (evt){
       evt.target.classList.add("true")
       p1AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
       p1DisplayNameEl.textContent = player1Name
+      playCharacterSound()
       render()
     } else if(evt.target.classList.contains("p2Choice")) {
       player2Name = evt.target.parentElement.id
@@ -664,12 +667,18 @@ function queenClickHandle (evt){
       evt.target.classList.add("true")
       p2AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
       p2DisplayNameEl.textContent = player2Name
+      playCharacterSound()
       render()
     }
   } return
 }
 
-function updatePlayer(evt) {
+function playCharacterSound() {
+  if(player1Name === "Aja" || player2Name === "Aja") {
+    yasszeeAudio.playAjaSound()
+  } else if(player1Name === "Alyssa" || player2Name === "Alyssa") {
+    yasszeeAudio.playAlyssaSound()
+  }
 }
 
 /*------------------------ Minimum Requirements -----------------------------*/
