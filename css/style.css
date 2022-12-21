@@ -106,18 +106,6 @@ p {
   margin-bottom: -50px;
 }
 
-#gameboard{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.scoreboard{
-  width: auto;
-  
-}
-
 #play-area {
   display: flex;
   flex-direction: column;
@@ -130,7 +118,7 @@ p {
 #table-dice {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: #ffb3e1;
 }
 
 #table-dice div {
@@ -151,6 +139,7 @@ th, td {
 td.p1, td.p2 {
   font-family: "dice";
   font-size: 36px;
+  color: #ffb3e1;
 }
 
 button {
@@ -166,27 +155,21 @@ button {
   margin: 10px 0;
 }
 
-#restart-btn {
-  
-}
-
 .lock-btn {
-  padding: 3px;
+  padding: 7px;
 }
 
 .locked, .true{
-  /* background-color: #ffb3e1; */
   font-weight: bold;
   color:#5ce1e6;
 }
 
 button.p1, button.p2 {
   width: 100%;
+  margin-bottom: 5px;
 }
 
 button:hover {
-  /* width: 100%; */
-  /* background-color: #ffb3e1; */
   font-weight: bold;
   border: solid 3px #fd66c2;
 }
@@ -196,8 +179,3 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   padding-top: 3px;
   padding-bottom: 3px;
 }
-
-/* #p1-avatar, #p2-avatar {
-  height: 200px;
-  width: 200px;
-} */
