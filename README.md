@@ -6,7 +6,7 @@
 YASSZEE is a RuPaul's Drag Race themed Yahtzee-style game. Both players can choose one of 10 iconic queens to play as. The basics of gameplay are:
 * Each player chooses a Drag Race icon to play as, once you select your characters, press start.
 * Click the roll dice button up to three times per turn.
-* You can lock dice in place by using the lock button between rolls. Once a die is locked, you can unlcok it by pressing the lock button again.
+* You can lock dice in place by using the lock button between rolls. Once a die is locked, you can unlock it by pressing the lock button again.
 * When you're happy with your dice combination (or you finished your third roll) click the place dice button to activate your scoreboard.
 * Click on the button for the hand you'd like to count your dice as for that round. Any combination of dice can be placed on any hand but only valid dice values will be counted towards your score.
 * At the end of the 13th round you'll hear the iconic shade rattle and the game will be over.
