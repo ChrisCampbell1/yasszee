@@ -2,7 +2,7 @@
 import * as yasszeeAudio from "./audio.js"
 
 /*---------------------------- Variables (state) ----------------------------*/
-let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
+let roundCounter, rollCounter, turn, gameInProgress, tie, turnOver, player1Name, player2Name
 
 let diceTally = {}
 
@@ -432,9 +432,9 @@ function scoreboardClickHandle(evt) {
   placeHand(evt)
   diceTally = {}
   if(turn === 1){
-  renderScoreboard1(p1DisplayEls)
+    renderScoreboard1(p1DisplayEls)
   } else if (turn === -1){
-  renderScoreboard2(p2DisplayEls)
+    renderScoreboard2(p2DisplayEls)
   }
   turnOver = false
   if(turn === -1){
@@ -534,8 +534,8 @@ function scoreSixes(scoreboard){
 }
 
 function upperHalfBonus(scoreboard) {
-  if(scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue >= 63 )
-  scoreboard.upperHalfBonus = 35
+  if(scoreboard.acesValue + scoreboard.twosValue + scoreboard.threesValue + scoreboard.foursValue + scoreboard.fivesValue + scoreboard.sixesValue >= 63 ){
+    scoreboard.upperHalfBonus = 35}
 }
 
 function scoreThreeOfAKind(scoreboard){
