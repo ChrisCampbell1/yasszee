@@ -1,5 +1,35 @@
-dice font designed by Jeff Bensch / https://www.dafont.com/jeff-bensch.d1635
-Drag art by RipstirLeon87 https://www.deviantart.com/ripstirleon87
-Laganja, Aja, Shangela, Herses,Trixie, Alyssa, Latrice, Katya, and rumail sounds from https://www.myinstants.com/en/search/?name=rupaul
-Shade sound from http://www.shadebutton.com/
-dice rolling sound from freesound.org user dermotte
+# YASSZEE
+![yasszee screenshot](./assets/Screenshot.png)
+
+## [Play YASSZEE Here](https://yasszee.netlify.app/)
+
+YASSZEE is a RuPaul's Drag Race themed Yahtzee-style game. Both players can choose one of 10 iconic queens to play as. The basics of gameplay are:
+* Each player chooses a Drag Race icon to play as, once you select your characters, press start.
+* Click the roll dice button up to three times per turn.
+* You can lock dice in place by using the lock button between rolls. Once a die is locked, you can unlcok it by pressing the lock button again.
+* When you're happy with your dice combination (or you finished your third roll) click the place dice button to activate your scoreboard.
+* Click on the button for the hand you'd like to count your dice as for that round. Any combination of dice can be placed on any hand but only valid dice values will be counted towards your score.
+* At the end of the 13th round you'll hear the iconic shade rattle and the game will be over.
+* Don't worry about calculating your score, the app will do it for you and add your total score to the bottom of your scoreboard.
+* Clicking restart will let you choose new characters and play a fresh game.
+
+## Technologies Used
+* JavaScript
+* HTML
+* CSS
+* Git
+
+## Credits
+* Dice font designed by [Jeff Bensch](https://www.dafont.com/jeff-bensch.d1635)
+* Drag art by [RipstirLeon87](https://www.deviantart.com/ripstirleon87)
+* Laganja, Aja, Shangela, Herses, Trixie, Alyssa, Latrice, and Katya sounds from [myinstants.com](https://www.myinstants.com)
+* Shade sound from [shadebutton.com](http://www.shadebutton.com/)
+* Dice rolling sound from freesound.org user [dermotte](https://freesound.org/people/dermotte/)
+
+## Ice Box
+- [ ] Develop mobile friendly layout and make the design fit on an iPhone
+- [ ] Add animation to the dice when rolled
+- [ ] Add animation to the dice when rolled
+- [ ] Allow more than two players at at time
+- [ ] Implement websockets so players don't have to sit at the same computer to play
+- [ ] Add one-player mode with a computer opponent
