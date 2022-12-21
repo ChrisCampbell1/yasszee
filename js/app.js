@@ -540,7 +540,7 @@ function upperHalfBonus(scoreboard) {
 function scoreThreeOfAKind(scoreboard){
   let valueTracker = 0
   let diceTotal = 0
-  for(dice in scoreboard.threeofakind){
+  for(let dice in scoreboard.threeofakind){
     diceTotal = diceTotal + (dice * scoreboard.threeofakind[dice])
     if(scoreboard.threeofakind[dice] > valueTracker){
       valueTracker = scoreboard.threeofakind[dice]
@@ -554,7 +554,7 @@ function scoreThreeOfAKind(scoreboard){
 function scoreFourOfAKind(scoreboard){
   let valueTracker = 0
   let diceTotal = 0
-  for(dice in scoreboard.fourofakind){
+  for(let dice in scoreboard.fourofakind){
     console.log(dice, "dice")
     console.log(scoreboard.fourofakind[dice], "values")
     diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
@@ -572,7 +572,7 @@ function scoreFourOfAKind(scoreboard){
 function scoreFullHouse(scoreboard){
   let highestValueTracker = 0
   let nextHighestValueTracker = 0
-  for(dice in scoreboard.fullhouse){
+  for(let dice in scoreboard.fullhouse){
     console.log("for in is running")
     if(scoreboard.fullhouse[dice] > highestValueTracker){
       highestValueTracker = scoreboard.fullhouse[dice]
@@ -596,7 +596,7 @@ function scoreSmallStraight(scoreboard){
 
 function scoreLargeStraight(scoreboard){
   let valueTracker = 0
-  for(dice in scoreboard.largestraight){
+  for(let dice in scoreboard.largestraight){
     if(scoreboard.largestraight[dice] > valueTracker){
       valueTracker = scoreboard.largestraight[dice]
     }
@@ -608,7 +608,7 @@ function scoreLargeStraight(scoreboard){
 
 function scoreYasszee(scoreboard){
   let valueTracker = 0
-  for(dice in scoreboard.yasszee){
+  for(let dice in scoreboard.yasszee){
     if(scoreboard.yasszee[dice] > valueTracker){
       valueTracker = scoreboard.yasszee[dice]
     }
@@ -620,7 +620,7 @@ function scoreYasszee(scoreboard){
 
 function scoreChance(scoreboard){
   let diceTotal = 0
-  for(dice in scoreboard.chance){
+  for(let dice in scoreboard.chance){
     diceTotal = diceTotal + (dice * scoreboard.chance[dice])
   }
   scoreboard.chanceValue = diceTotal
