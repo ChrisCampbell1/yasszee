@@ -1,7 +1,6 @@
 /*--------------------------------Constants----------------------------*/
 import * as yasszeeAudio from "./audio.js"
 
-//todo after last push, renderscoreboard broke variables aren't being console logged in the chrome console anymore, uncaught reference error
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
 
@@ -343,7 +342,6 @@ function rollIncrement() {
 
 function changeTurn() {
   turn = turn * -1
-  console.log(turn)
 }
 
 function resetLockBtns(arr){
@@ -358,11 +356,10 @@ function tallyDice(arr) {
     if(diceTally[die.value]){
       diceTally[die.value]++
     } else diceTally[die.value] = 1
-  } console.log(diceTally)
+  }
 }
 
 function placeHand(evt) {
-  console.log("place hand ran")
   let scoreboardKey = evt.target.textContent.toLowerCase().replaceAll(" ", "")
   if (turn === 1){
       scoreboard1[scoreboardKey] = diceTally
@@ -372,11 +369,9 @@ function placeHand(evt) {
 }
 
 function renderScoreboard1(arr) {
-  console.log("render scoreboard ran")
   let handString = ""
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
-    console.log(scoreboardKey)
     let hand = scoreboard1[scoreboardKey]
     for(let prop in hand){
       for(let i = 0; i < hand[prop]; i++){
@@ -428,7 +423,6 @@ function scoreboardClickHandle(evt) {
   if(turn === -1 && scoreboard2[scoreboardKey] !== null){
     return
   }
-  console.log("scoreboard was clicked")
   placeHand(evt)
   diceTally = {}
   if(turn === 1){
@@ -555,15 +549,11 @@ function scoreFourOfAKind(scoreboard){
   let valueTracker = 0
   let diceTotal = 0
   for(let dice in scoreboard.fourofakind){
-    console.log(dice, "dice")
-    console.log(scoreboard.fourofakind[dice], "values")
     diceTotal = diceTotal + (dice * scoreboard.fourofakind[dice])
     if(scoreboard.fourofakind[dice] > valueTracker){
       valueTracker = scoreboard.fourofakind[dice]
     }
   }
-  console.log(valueTracker, "value tracker")
-  console.log(diceTotal, "dice total")
   if(valueTracker >= 4){
     scoreboard.fourOfAKindValue = diceTotal
   } else return
@@ -573,18 +563,14 @@ function scoreFullHouse(scoreboard){
   let highestValueTracker = 0
   let nextHighestValueTracker = 0
   for(let dice in scoreboard.fullhouse){
-    console.log("for in is running")
     if(scoreboard.fullhouse[dice] > highestValueTracker){
       highestValueTracker = scoreboard.fullhouse[dice]
     } else if (scoreboard.fullhouse[dice] <= highestValueTracker){
       nextHighestValueTracker = scoreboard.fullhouse[dice]
     }
   }
-  console.log(highestValueTracker, "hightest")
-  console.log(nextHighestValueTracker, "next hightest")
   if(highestValueTracker === 3 && nextHighestValueTracker === 2){
     scoreboard.fullHouseValue = 25
-    console.log(scoreboard.fullHouseValue, "value")
   } else return
 }
 
