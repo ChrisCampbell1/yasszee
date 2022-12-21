@@ -33,7 +33,6 @@ body {
   text-align: center;
   color: aliceblue;
   justify-content: space-around;
-  /* margin-top: 20px; */
 }
 
 #modal{
@@ -72,10 +71,6 @@ body {
   align-items: center;
 }
 
-.queen button {
-  
-}
-
 .queen img {
   height: 150px;
 }
@@ -85,6 +80,10 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+}
+
+.player {
+  justify-content: space-between;
 }
 
 h2{
@@ -182,7 +181,6 @@ button {
   /* background-color: #ffb3e1; */
   font-weight: bold;
   color:#5ce1e6;
-  after: 
 }
 
 button.p1, button.p2 {
@@ -194,8 +192,6 @@ button:hover {
   /* background-color: #ffb3e1; */
   font-weight: bold;
   border: solid 3px #fd66c2;
-
-
 }
 
 button#roll-btn, button#end-turn-btn, button#restart-btn{
