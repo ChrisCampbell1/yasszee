@@ -1,5 +1,5 @@
 /*--------------------------------Constants----------------------------*/
-
+import * as yasszeeAudio from "../js/audio.js"
 
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
