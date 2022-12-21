@@ -141,8 +141,6 @@ p {
 .table-die {
   display: flex;
   flex-direction: column;
-  /* padding-left: 5px;
-  padding-right: 5px; */
 }
 
 
@@ -161,8 +159,7 @@ button {
   border-radius: 10px;
   background-color: transparent;
   border: solid 2px #fd66c2;
-  /* filter: drop-shadow(2px 2px 1px #fd66c2); */
-  text-shadow: none;
+  margin-bottom: 10px;
 }
 
 #play-area button {
