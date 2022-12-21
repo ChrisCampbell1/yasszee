@@ -1,8 +1,7 @@
 /*--------------------------------Constants----------------------------*/
-
 import * as yasszeeAudio from "./audio.js"
 
-
+//todo after last push, renderscoreboard broke variables aren't being console logged in the chrome console anymore, uncaught reference error
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, winner, tie, turnOver, player1Name, player2Name
 
@@ -134,7 +133,6 @@ scoreboard1El.addEventListener("click", scoreboardClickHandle)
 scoreboard2El.addEventListener("click", scoreboardClickHandle)
 startBtn.addEventListener("click", closeModal)
 queensGridEl.addEventListener("click", queenClickHandle)
-
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -364,6 +362,7 @@ function tallyDice(arr) {
 }
 
 function placeHand(evt) {
+  console.log("place hand ran")
   let scoreboardKey = evt.target.textContent.toLowerCase().replaceAll(" ", "")
   if (turn === 1){
       scoreboard1[scoreboardKey] = diceTally
@@ -373,14 +372,16 @@ function placeHand(evt) {
 }
 
 function renderScoreboard1(arr) {
+  console.log("render scoreboard ran")
   let handString = ""
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
+    console.log(scoreboardKey)
     let hand = scoreboard1[scoreboardKey]
-    for(prop in hand){
+    for(let prop in hand){
       for(let i = 0; i < hand[prop]; i++){
         handString = handString + prop
-    }
+      }
     }
     arr[i].textContent = handString
     handString = ""
@@ -392,7 +393,7 @@ function renderScoreboard2(arr) {
   for(let i = 0; i < arr.length; i++){
     let scoreboardKey = arr[i].id.slice(3).replaceAll("-", "")
     let hand = scoreboard2[scoreboardKey]
-    for(prop in hand){
+    for(let prop in hand){
       for(let i = 0; i < hand[prop]; i++){
         handString = handString + prop
     }
@@ -653,6 +654,7 @@ function closeModal() {
   if(player1Name === null || player2Name === null){
     return
   }
+  yasszeeAudio.playHersesSound()
   modalEl.classList.add("closed")
 }
 
@@ -675,7 +677,6 @@ function queenClickHandle (evt){
           evt.target.classList.add("true")
           p2AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
           p2DisplayNameEl.textContent = player2Name
-          console.log(evt)
           playCharacterSound(evt)
           render()
         }

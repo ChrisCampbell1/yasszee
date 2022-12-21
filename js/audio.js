@@ -8,6 +8,9 @@ let latriceSound = new Audio("../assets/latrice.mp3")
 let shangelaSound = new Audio("../assets/shangela.m4a")
 let tatiannaSound = new Audio("../assets/tatianna.m4a")
 let trixieSound = new Audio("../assets/trixie.mp3")
+let hersesSound = new Audio("../assets/herses.mp3")
+let popSound = new Audio("../assets/pop.m4a")
+let shadeSound = new Audio("../assets/shade.mp3")
 
 function playAjaSound() {
   ajaSound.volume = .25
@@ -59,7 +62,20 @@ function playTrixieSound() {
   trixieSound.play()
 }
 
+function playHersesSound() {
+  hersesSound.volume = .25
+  hersesSound.play()
+}
 
+function playPopSound() {
+  popSound.volume = .25
+  popSound.play()
+}
+
+function playShadeSound() {
+  shadeSound.volume = .25
+  shadeSound.play()
+}
 
 
 export {
@@ -72,5 +88,8 @@ export {
   playLatriceSound,
   playShangelaSound,
   playTatiannaSound,
-  playTrixieSound
+  playTrixieSound,
+  playHersesSound,
+  playPopSound,
+  playShadeSound
 }
