@@ -737,7 +737,7 @@ function playCharacterSound(evt) {
 /*------------------------ Minimum Requirements -----------------------------*/
 //// - **Render a game in the browser**. You may not use Canvas or jQuery.
 //// - **Include win/loss logic and render win/loss messages in HTML.** You may not use alerts or prompt anywhere in your application.
-// - Include separate HTML, CSS, JavaScript, and JavaScript Data files.
+//// - Include separate HTML, CSS, JavaScript, and JavaScript Data files.
 // - Be grammatically correct and be free of spelling errors.
 //// - Display a favicon.
 //// - Use CSS Flexbox or Grid.
