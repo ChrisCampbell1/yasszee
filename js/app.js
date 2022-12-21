@@ -296,9 +296,11 @@ function lockDice(evt) {
   if(diceOnTable[diceId].locked === false){
     diceOnTable[diceId].locked = true
     evt.target.classList.add("locked")
+    yasszeeAudio.playPopSound()
   } else if (diceOnTable[diceId].locked === true){
     diceOnTable[diceId].locked = false
     evt.target.classList.remove("locked")
+    yasszeeAudio.playPopSound()
   }
 }
 
@@ -427,7 +429,6 @@ function scoreboardClickHandle(evt) {
     return
   }
   placeHand(evt)
-  yasszeeAudio.playPopSound()
   diceTally = {}
   if(turn === 1){
   renderScoreboard1(p1DisplayEls)
@@ -651,10 +652,8 @@ function closeModal() {
 }
 
 function clearSelectionBtns() {
-  console.log("clear ran")
   let selectionBtns = document.querySelectorAll(".selection")
   for (let i = 0; i < selectionBtns.length; i++){
-    console.log(selectionBtns[i].classList)
     selectionBtns[i].classList.remove("true")
   }
 }
