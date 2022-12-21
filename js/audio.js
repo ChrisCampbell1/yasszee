@@ -7,7 +7,7 @@ let laganjaSound = new Audio("../assets/laganja.mp3")
 let latriceSound = new Audio("../assets/latrice.mp3")
 let shangelaSound = new Audio("../assets/shangela.m4a")
 let tatiannaSound = new Audio("../assets/tatianna.m4a")
-let trixieSound = new Audio("../assets/alyssa.trixie.mp3")
+let trixieSound = new Audio("../assets/trixie.mp3")
 
 function playAjaSound() {
   ajaSound.volume = .25
@@ -20,12 +20,12 @@ function playAlyssaSound() {
 }
 
 function playBendelaSound() {
-  bendelaSound.volume = .25
+  bendelaSound.volume = .6
   bendelaSound.play()
 }
 
 function playJinkxSound() {
-  jinkxSound.volume = .25
+  jinkxSound.volume = .6
   jinkxSound.play()
 }
 
@@ -50,7 +50,7 @@ function playShangelaSound() {
 }
 
 function playTatiannaSound() {
-  tatiannaSound.volume = .25
+  tatiannaSound.volume = .5
   tatiannaSound.play()
 }
 

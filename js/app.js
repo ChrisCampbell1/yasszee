@@ -140,6 +140,8 @@ queensGridEl.addEventListener("click", queenClickHandle)
 init()
 
 function init() {
+  player1Name = null
+  player2Name = null
   modalEl.classList.remove("closed")
   p1Score = 0
   p2Score = 0
@@ -648,52 +650,85 @@ function addScore(scoreboard) {
 
 /*------------------------ modal functions -----------------------------*/
 function closeModal() {
+  if(player1Name === null || player2Name === null){
+    return
+  }
   modalEl.classList.add("closed")
 }
 
 function queenClickHandle (evt){
   if(evt.target.classList.contains("selection")) {
     if(evt.target.classList.contains("p1Choice")) {
-      player1Name = evt.target.parentElement.id
-      player1Name = player1Name.charAt(0).toUpperCase() + player1Name.slice(1)
-      evt.target.classList.add("true")
-      p1AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
-      p1DisplayNameEl.textContent = player1Name
-      playCharacterSound()
-      render()
+      if(player1Name === null){
+        player1Name = evt.target.parentElement.id
+        player1Name = player1Name.charAt(0).toUpperCase() + player1Name.slice(1)
+        evt.target.classList.add("true")
+        p1AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
+        p1DisplayNameEl.textContent = player1Name
+        playCharacterSound(evt)
+        render()
+      }
     } else if(evt.target.classList.contains("p2Choice")) {
-      player2Name = evt.target.parentElement.id
-      player2Name = player2Name.charAt(0).toUpperCase() + player2Name.slice(1)
-      evt.target.classList.add("true")
-      p2AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
-      p2DisplayNameEl.textContent = player2Name
-      playCharacterSound()
-      render()
+        if(player2Name === null){
+          player2Name = evt.target.parentElement.id
+          player2Name = player2Name.charAt(0).toUpperCase() + player2Name.slice(1)
+          evt.target.classList.add("true")
+          p2AvatarEl.src = `./assets/${evt.target.parentElement.id}.png`
+          p2DisplayNameEl.textContent = player2Name
+          console.log(evt)
+          playCharacterSound(evt)
+          render()
+        }
     }
   } return
 }
 
-function playCharacterSound() {
-  if(player1Name === "Aja" || player2Name === "Aja") {
-    yasszeeAudio.playAjaSound()
-  } else if(player1Name === "Alyssa" || player2Name === "Alyssa") {
-    yasszeeAudio.playAlyssaSound()
-  } else if(player1Name === "Bendelacreme" || player2Name === "Bendelacreme") {
-    yasszeeAudio.playBendelaSound()
-  } else if(player1Name === "Jinkx" || player2Name === "Jinkx") {
-    yasszeeAudio.playJinkxSound()
-  } else if(player1Name === "Katya" || player2Name === "Katya") {
-    yasszeeAudio.playKatyaSound()
-  } else if(player1Name === "Laganja" || player2Name === "Laganja") {
-    yasszeeAudio.playLaganjaSound()
-  } else if(player1Name === "Latrice" || player2Name === "Latrice") {
-    yasszeeAudio.playLatriceSound()
-  } else if(player1Name === "Shangela" || player2Name === "Shangela") {
-    yasszeeAudio.playShangelaSound()
-  } else if(player1Name === "Tatianna" || player2Name === "Tatianna") {
-    yasszeeAudio.playTatiannaSound()
-  } else if(player1Name === "Trixie" || player2Name === "Trixie") {
-    yasszeeAudio.playTrixieSound()
+function playCharacterSound(evt) {
+  if(evt.target.classList.contains("p1Choice")){
+    if(player1Name === "Aja") {
+      yasszeeAudio.playAjaSound()
+    } else if(player1Name === "Alyssa") {
+      yasszeeAudio.playAlyssaSound()
+    } else if(player1Name === "Bendelacreme") {
+      yasszeeAudio.playBendelaSound()
+    } else if(player1Name === "Jinkx") {
+      yasszeeAudio.playJinkxSound()
+    } else if(player1Name === "Katya") {
+      yasszeeAudio.playKatyaSound()
+    } else if(player1Name === "Laganja") {
+      yasszeeAudio.playLaganjaSound()
+    } else if(player1Name === "Latrice") {
+      yasszeeAudio.playLatriceSound()
+    } else if(player1Name === "Shangela") {
+      yasszeeAudio.playShangelaSound()
+    } else if(player1Name === "Tatianna") {
+      yasszeeAudio.playTatiannaSound()
+    } else if(player1Name === "Trixie") {
+      yasszeeAudio.playTrixieSound()
+    }
+  }
+  if(evt.target.classList.contains("p2Choice")){
+    if(player2Name === "Aja") {
+      yasszeeAudio.playAjaSound()
+    } else if(player2Name === "Alyssa") {
+      yasszeeAudio.playAlyssaSound()
+    } else if(player2Name === "Bendelacreme") {
+      yasszeeAudio.playBendelaSound()
+    } else if(player2Name === "Jinkx") {
+      yasszeeAudio.playJinkxSound()
+    } else if(player2Name === "Katya") {
+      yasszeeAudio.playKatyaSound()
+    } else if(player2Name === "Laganja") {
+      yasszeeAudio.playLaganjaSound()
+    } else if(player2Name === "Latrice") {
+      yasszeeAudio.playLatriceSound()
+    } else if(player2Name === "Shangela") {
+      yasszeeAudio.playShangelaSound()
+    } else if(player2Name === "Tatianna") {
+      yasszeeAudio.playTatiannaSound()
+    } else if(player2Name === "Trixie") {
+      yasszeeAudio.playTrixieSound()
+    }
   }
 }
 
