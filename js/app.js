@@ -268,6 +268,7 @@ function rollDiceHandle() {
     return
   }
   rollDice(diceOnTable)
+  yasszeeAudio.playDiceSound()
 }
 
 function rollDice(arr) {

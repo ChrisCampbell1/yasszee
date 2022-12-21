@@ -11,6 +11,7 @@ let trixieSound = new Audio("../assets/trixie.mp3")
 let hersesSound = new Audio("../assets/herses.mp3")
 let popSound = new Audio("../assets/pop.m4a")
 let shadeSound = new Audio("../assets/shade.mp3")
+let diceSound = new Audio("../assets/dice.wav")
 
 function playAjaSound() {
   ajaSound.volume = .25
@@ -77,6 +78,11 @@ function playShadeSound() {
   shadeSound.play()
 }
 
+function playDiceSound() {
+  diceSound.volume = .25
+  diceSound.play()
+}
+
 
 export {
   playAjaSound,
@@ -91,5 +97,6 @@ export {
   playTrixieSound,
   playHersesSound,
   playPopSound,
-  playShadeSound
+  playShadeSound,
+  playDiceSound
 }
