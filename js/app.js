@@ -123,6 +123,7 @@ const p2AvatarEl = document.querySelector("#p2-avatar")
 const p1DisplayNameEl = document.querySelector("#p1-display-name")
 const p2DisplayNameEl = document.querySelector("#p2-display-name")
 
+
 /*----------------------------- Event Listeners -----------------------------*/
 restartBtn.addEventListener("click", init)
 rollBtn.addEventListener("click", rollDiceHandle)
@@ -645,7 +646,17 @@ function closeModal() {
     return
   }
   yasszeeAudio.playHersesSound()
+  clearSelectionBtns()
   modalEl.classList.add("closed")
+}
+
+function clearSelectionBtns() {
+  console.log("clear ran")
+  let selectionBtns = document.querySelectorAll(".selection")
+  for (let i = 0; i < selectionBtns.length; i++){
+    console.log(selectionBtns[i].classList)
+    selectionBtns[i].classList.remove("true")
+  }
 }
 
 function queenClickHandle (evt){
