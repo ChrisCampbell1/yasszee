@@ -424,6 +424,7 @@ function scoreboardClickHandle(evt) {
     return
   }
   placeHand(evt)
+  yasszeeAudio.playPopSound()
   diceTally = {}
   if(turn === 1){
   renderScoreboard1(p1DisplayEls)
@@ -470,6 +471,7 @@ function endGame() {
     p2Score = addScore(scoreboard2)
     p1ScoreEl.textContent = p1Score
     p2ScoreEl.textContent = p2Score
+    yasszeeAudio.playShadeSound()
   } if(p1Score === p2Score){
     tie = true
   }
