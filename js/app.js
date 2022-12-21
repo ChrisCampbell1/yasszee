@@ -276,9 +276,11 @@ function rollDice(arr) {
     }
   } renderDice(diceOnTable)
   rollIncrement()
-  // if(rollCounter >= 3){
-  //   endTurnHandle(evt)
-  // }
+  if(rollCounter >= 3){
+    endTurnBtn.classList.add("true")
+    tallyDice(diceOnTable)
+    turnOver = true
+  }
 }
 
 function lockDice(evt) {
