@@ -183,11 +183,24 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 
 @media only screen and (max-width: 768px) {
   body {
+    flex-direction: column;
+  }
 
+  .center {
+    order: 1;
+  }
+
+  #player-1{
+    order: 2;
+  }
+
+  #player-2{
+    order: 3;
   }
 
   #modal{
     margin-bottom: 50px;
+
   }
 
   #modal-logo {
