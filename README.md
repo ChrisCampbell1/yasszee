@@ -12,6 +12,7 @@ YASSZEE is a RuPaul's Drag Race themed Yahtzee-style game. Both players can choo
 * At the end of the 13th round you'll hear the iconic shade rattle and the game will be over.
 * Don't worry about calculating your score, the app will do it for you and add your total score to the bottom of your scoreboard.
 * Clicking restart will let you choose new characters and play a fresh game.
+* Planning materials and original wireframe can be found [here](https://docs.google.com/document/d/1UA5bBcTm1CF_MG64lcle178ME7TS67oI8M0gUle_5iI/edit?usp=sharing)
 
 ## Technologies Used
 * JavaScript
