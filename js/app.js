@@ -351,16 +351,20 @@ function rollIncrement() {
 function changeTurn() {
   turn = turn * -1
   if(turn === 1){
-    player1El.classList.add("p1-turn")
-    player2El.classList.add("p1-turn")
-    player1El.classList.remove("p2-turn")
-    player2El.classList.remove("p2-turn")
+    setTimeout(() => {
+      player1El.classList.add("p1-turn")
+      player2El.classList.add("p1-turn")
+      player1El.classList.remove("p2-turn")
+      player2El.classList.remove("p2-turn")
+    }, 1500);
   }
   if(turn === -1){
-    player1El.classList.add("p2-turn")
-    player2El.classList.add("p2-turn")
-    player1El.classList.remove("p1-turn")
-    player2El.classList.remove("p1-turn")
+    setTimeout(() => {
+      player1El.classList.add("p2-turn")
+      player2El.classList.add("p2-turn")
+      player1El.classList.remove("p1-turn")
+      player2El.classList.remove("p1-turn")
+    }, 1500);
   }
   if(window.innerWidth < 768){
     setTimeout(() => {
