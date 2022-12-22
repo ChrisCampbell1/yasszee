@@ -152,12 +152,40 @@ button {
   margin-bottom: 10px;
 }
 
+button:hover {
+  font-weight: bold;
+  border: solid 3px #fd66c2;
+  filter: drop-shadow(3px 3px 10px #fd66c2);
+}
+
+button.selection {
+  width: 90px;
+  height: 30px;
+}
+
+button#start {
+  width: 60px;
+  height: 28px;
+}
+
+button#start:hover {
+  margin-bottom: 10px;
+}
+
+button.p1, button.p2 {
+  width: 150px;
+  height: 28px;
+  margin-bottom: 5px;
+}
+
 #play-area button {
   margin: 10px 0;
 }
 
 .lock-btn {
   padding: 7px;
+  width: 60px;
+  height: 39px;
 }
 
 .locked, .true{
@@ -165,20 +193,9 @@ button {
   color:#5ce1e6;
 }
 
-button.p1, button.p2 {
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-button:hover {
-  font-weight: bold;
-  border: solid 3px #fd66c2;
-}
-
 button#roll-btn, button#end-turn-btn, button#restart-btn{
-  width: 30%;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  width: 150px;
+  height: 28px;
 }
 
 @media only screen and (max-width: 768px) {
