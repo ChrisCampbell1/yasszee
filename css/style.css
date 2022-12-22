@@ -184,6 +184,11 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 @media only screen and (max-width: 768px) {
   body {
     flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #title-image{
+    width: auto;
   }
 
   .center {
@@ -200,7 +205,12 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 
   #modal{
     margin-bottom: 50px;
+    position: relative;
+  }
 
+  #modal.closed{
+    opacity: 0;
+    visibility: hidden;
   }
 
   #modal-logo {
