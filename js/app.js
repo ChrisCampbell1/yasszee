@@ -1,70 +1,10 @@
 /*--------------------------------Constants----------------------------*/
-import * as yasszeeAudio from "./audio.js"
+import * as yasszeeAudio from "../data/audio.js"
 
 /*---------------------------- Variables (state) ----------------------------*/
 let roundCounter, rollCounter, turn, gameInProgress, tie, turnOver, player1Name, player2Name
 
 let diceTally = {}
-
-let scoreboard1Cheat = {
-  aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
-  twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
-  threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
-  fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
-  fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
-  sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
-  threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
-  fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
-  fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
-  smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
-  largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
-  yasszee: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 5},
-  chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
-  acesValue: 0,
-  twosValue: 0,
-  threesValue: 0,
-  foursValue: 0,
-  fivesValue: 0,
-  sixesValue: 0,
-  threeOfAKindValue: 0,
-  fourOfAKindValue: 0,
-  fullHouseValue: 0,
-  smallStraightValue: 0,
-  largeStraightValue: 0,
-  yasszeeValue: 0,
-  chanceValue: 0,
-  upperHalfBonus: 0
-}
-
-let scoreboard2Cheat = {
-  aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
-  twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
-  threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
-  fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
-  fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
-  sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
-  threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
-  fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
-  fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
-  smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
-  largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
-  yasszee: {1: 1, 2: 1, 3: 1, 4: 0, 5: 2, 6: 0},
-  chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
-  acesValue: 0,
-  twosValue: 0,
-  threesValue: 0,
-  foursValue: 0,
-  fivesValue: 0,
-  sixesValue: 0,
-  threeOfAKindValue: 0,
-  fourOfAKindValue: 0,
-  fullHouseValue: 0,
-  smallStraightValue: 0,
-  largeStraightValue: 0,
-  yasszeeValue: 0,
-  chanceValue: 0,
-  upperHalfBonus: 0
-}
 
 let scoreboard1 = {
   aces: null,
