@@ -122,6 +122,9 @@ const p1AvatarEl = document.querySelector("#p1-avatar")
 const p2AvatarEl = document.querySelector("#p2-avatar")
 const p1DisplayNameEl = document.querySelector("#p1-display-name")
 const p2DisplayNameEl = document.querySelector("#p2-display-name")
+const centerEl = document.querySelector("#center")
+const player1El = document.querySelector("#player-1")
+const player2El = document.querySelector("#player-2")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -649,6 +652,9 @@ function closeModal() {
   yasszeeAudio.playHersesSound()
   clearSelectionBtns()
   modalEl.classList.add("closed")
+  centerEl.classList.remove("hide")
+  player1El.classList.remove("hide")
+  player2El.classList.remove("hide")
 }
 
 function clearSelectionBtns() {

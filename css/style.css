@@ -267,4 +267,9 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   width: 60px;
   height: 39px;
   }
+
+  .hide{
+    visibility: hidden;
+    display: none;
+  }
 }
