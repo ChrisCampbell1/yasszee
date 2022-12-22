@@ -183,11 +183,21 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 
 @media only screen and (max-width: 768px) {
   body {
-    background-color: yellow;
+    
   }
 
   #modal{
     margin-bottom: 50px;
+  }
+
+  #modal-logo {
+    width: 50%;
+    margin-bottom: -40px;
+  }
+
+  #modal h3 {
+    font-size: smaller;
+    margin-bottom: 20px;
   }
   
 }
