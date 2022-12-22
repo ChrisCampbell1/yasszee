@@ -350,6 +350,18 @@ function rollIncrement() {
 
 function changeTurn() {
   turn = turn * -1
+  if(turn === 1){
+    player1El.classList.add("p1-turn")
+    player2El.classList.add("p1-turn")
+    player1El.classList.remove("p2-turn")
+    player2El.classList.remove("p2-turn")
+  }
+  if(turn === -1){
+    player1El.classList.add("p2-turn")
+    player2El.classList.add("p2-turn")
+    player1El.classList.remove("p1-turn")
+    player2El.classList.remove("p1-turn")
+  }
 }
 
 function resetLockBtns(arr){

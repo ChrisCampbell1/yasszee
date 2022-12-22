@@ -202,6 +202,8 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   body {
     flex-direction: column;
     align-items: center;
+    --player-1-turn: 2;
+    --player-2-turn: 3;
   }
 
   #title-image{
@@ -218,6 +220,22 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 
   #player-2{
     order: 3;
+  }
+
+  #player-1.p1-turn{
+    order: 2;
+  }
+
+  #player-2.p1-turn{
+    order: 3;
+  }
+
+  #player-1.p2-turn{
+    order: 3;
+  }
+
+  #player-2.p2-turn{
+    order: 2;
   }
 
   #modal{
