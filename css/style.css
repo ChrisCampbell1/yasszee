@@ -247,7 +247,7 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   }
 
   button.selection {
-    width: 100px;
+    width: 125px;
     height: 30px;
   }
   
