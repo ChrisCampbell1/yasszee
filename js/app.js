@@ -362,6 +362,15 @@ function changeTurn() {
     player1El.classList.remove("p1-turn")
     player2El.classList.remove("p1-turn")
   }
+  if(window.innerWidth < 768){
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })
+    }, 1000);
+  }
 }
 
 function resetLockBtns(arr){
