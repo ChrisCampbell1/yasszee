@@ -148,7 +148,6 @@ function init() {
   rollCounter = 0
   turn = 1
   gameInProgress = true
-  winner = false
   tie = false
   diceTally = {}
   scoreboard1 = {
