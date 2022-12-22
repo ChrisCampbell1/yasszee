@@ -245,5 +245,9 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   #queens-grid {
     justify-content: center;
   }
+
+  button {
+    text-align: center;
+  }
   
 }
