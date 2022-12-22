@@ -6,6 +6,66 @@ let roundCounter, rollCounter, turn, gameInProgress, tie, turnOver, player1Name,
 
 let diceTally = {}
 
+let scoreboard1Cheat = {
+  aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
+  twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
+  threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
+  fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
+  fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
+  sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
+  threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
+  fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
+  fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
+  smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
+  largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
+  yasszee: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 5},
+  chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0,
+  upperHalfBonus: 0
+}
+
+let scoreboard2Cheat = {
+  aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
+  twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
+  threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
+  fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
+  fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
+  sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
+  threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
+  fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
+  fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
+  smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
+  largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
+  yasszee: {1: 1, 2: 1, 3: 1, 4: 0, 5: 2, 6: 0},
+  chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
+  acesValue: 0,
+  twosValue: 0,
+  threesValue: 0,
+  foursValue: 0,
+  fivesValue: 0,
+  sixesValue: 0,
+  threeOfAKindValue: 0,
+  fourOfAKindValue: 0,
+  fullHouseValue: 0,
+  smallStraightValue: 0,
+  largeStraightValue: 0,
+  yasszeeValue: 0,
+  chanceValue: 0,
+  upperHalfBonus: 0
+}
+
 let scoreboard1 = {
   aces: null,
   twos: null,
@@ -255,7 +315,7 @@ function displayMessage() {
   if(gameInProgress === false){
     if(tie === true){
       messageEl.textContent =`Y'all tied, try again?`
-    } else p1Score > p2Score ? messageEl.textContent = `${player1Name}, you're a winner baby! ${player2Name} sashay away.` : messageEl.textContent = `${player2Name}, you're a winner baby! ${player1Name} sashay away.`
+    } else p1Score > p2Score ? messageEl.textContent = `${player1Name}, you're a winner baby! ${player2Name}, sashay away.` : messageEl.textContent = `${player2Name}, you're a winner baby! ${player1Name} sashay away.`
   }
 }
 
@@ -732,3 +792,77 @@ function playCharacterSound(evt) {
     }
   }
 }
+
+function cheat() {
+  scoreboard1 = {
+    aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
+    twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
+    threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
+    fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
+    fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
+    sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
+    threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
+    fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
+    fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
+    smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
+    largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
+    yasszee: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 5},
+    chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
+    acesValue: 0,
+    twosValue: 0,
+    threesValue: 0,
+    foursValue: 0,
+    fivesValue: 0,
+    sixesValue: 0,
+    threeOfAKindValue: 0,
+    fourOfAKindValue: 0,
+    fullHouseValue: 0,
+    smallStraightValue: 0,
+    largeStraightValue: 0,
+    yasszeeValue: 0,
+    chanceValue: 0,
+    upperHalfBonus: 0
+  }
+  scoreboard2 = {
+    aces: {1: 3, 2: 2, 3: 0, 4: 0, 5: 0, 6: 0},
+    twos: {1: 4, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0},
+    threes: {1: 2, 2: 0, 3: 3, 4: 0, 5: 0, 6: 0},
+    fours: {1: 0, 2: 0, 3: 0, 4: 4, 5: 0, 6: 1},
+    fives: {1: 1, 2: 1, 3: 0, 4: 0, 5: 3, 6: 0},
+    sixes: {1: 0, 2: 0, 3: 0, 4: 2, 5: 0, 6: 3},
+    threeofakind: {1: 0, 2: 0, 3: 0, 4: 3, 5: 1, 6: 1},
+    fourofakind: {1: 0, 2: 0, 3: 4, 4: 1, 5: 0, 6: 0},
+    fullhouse: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 3},
+    smallstraight: {1: 1, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0},
+    largestraight: {1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1},
+    yasszee: {1: 1, 2: 1, 3: 1, 4: 0, 5: 2, 6: 0},
+    chance: {1: 2, 2: 1, 3: 0, 4: 1, 5: 1, 6: 0},
+    acesValue: 0,
+    twosValue: 0,
+    threesValue: 0,
+    foursValue: 0,
+    fivesValue: 0,
+    sixesValue: 0,
+    threeOfAKindValue: 0,
+    fourOfAKindValue: 0,
+    fullHouseValue: 0,
+    smallStraightValue: 0,
+    largeStraightValue: 0,
+    yasszeeValue: 0,
+    chanceValue: 0,
+    upperHalfBonus: 0
+  }
+  renderScoreboard1(p1DisplayEls)
+  renderScoreboard2(p2DisplayEls)
+  gameInProgress = false
+  endGame()
+  displayMessage()
+  roundCounter = 13
+}
+
+// window.init = init
+window.scoreboard1 = scoreboard1
+window.scoreboard2 = scoreboard2
+window.cheat = cheat
+// window.init = init
+//window.anything = anything
