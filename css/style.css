@@ -184,7 +184,7 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
 @media only screen and (max-width: 768px) {
   body {
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
   }
 
   #title-image{
@@ -206,11 +206,13 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   #modal{
     margin-bottom: 50px;
     position: relative;
+    height: 100%;
   }
 
   #modal.closed{
     opacity: 0;
     visibility: hidden;
+    display: none;
   }
 
   #modal-logo {
