@@ -18,6 +18,7 @@ YASSZEE is a RuPaul's Drag Race themed Yahtzee-style game. Both players can choo
 * HTML
 * CSS
 * Git
+* Canva
 
 ## Credits
 * Dice font designed by [Jeff Bensch](https://www.dafont.com/jeff-bensch.d1635)
