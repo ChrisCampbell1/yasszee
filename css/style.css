@@ -247,7 +247,8 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   }
 
   button {
-    text-align: center;
+    width: auto;
+    height: auto;
   }
   
 }
