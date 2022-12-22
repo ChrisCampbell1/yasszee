@@ -202,8 +202,6 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   body {
     flex-direction: column;
     align-items: center;
-    --player-1-turn: 2;
-    --player-2-turn: 3;
   }
 
   #title-image{
