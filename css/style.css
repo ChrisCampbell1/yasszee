@@ -180,3 +180,14 @@ button#roll-btn, button#end-turn-btn, button#restart-btn{
   padding-top: 3px;
   padding-bottom: 3px;
 }
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: yellow;
+  }
+
+  #modal{
+    margin-bottom: 50px;
+  }
+  
+}
