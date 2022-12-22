@@ -288,7 +288,7 @@ function lockDice(evt) {
   if(gameInProgress === false){
     return
   }
-  let divId = evt.path[1].id
+  let divId = evt.composedPath()[1].id
   let diceId = divId.replace("die-","")
   if(diceOnTable[diceId].value === 0){
     return
