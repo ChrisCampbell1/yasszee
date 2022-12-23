@@ -375,7 +375,7 @@ function changeTurn() {
         left: 0,
         behavior: "smooth"
       })
-    }, 1000);
+    }, 1500);
   }
 }
 
