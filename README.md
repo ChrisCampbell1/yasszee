@@ -31,5 +31,5 @@ YASSZEE is a RuPaul's Drag Race themed Yahtzee-style game. Both players can choo
 ## Ice Box
 - [x] Develop mobile friendly layout and make the design fit on an iPhone
 - [ ] Allow more than two players at at time
-- [ ] Implement websockets so players don't have to sit at the same computer to play
+- [ ] Implement WebSockets so players don't have to sit at the same computer to play
 - [ ] Add one-player mode with a computer opponent
