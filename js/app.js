@@ -145,6 +145,10 @@ init()
 function init() {
   player1Name = null
   player2Name = null
+  player1El.classList.remove("p1-turn")
+  player2El.classList.remove("p1-turn")
+  player1El.classList.remove("p2-turn")
+  player2El.classList.remove("p2-turn")
   modalEl.classList.remove("closed")
   p1Score = 0
   p2Score = 0
