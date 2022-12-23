@@ -1,4 +1,4 @@
-/*--------------------------------Constants----------------------------*/
+/*--------------------------------Imports----------------------------*/
 import * as yasszeeAudio from "../data/audio.js"
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -834,9 +834,6 @@ function cheat() {
   turnCountEl.textContent = roundCounter
 }
 
-// window.init = init
 window.scoreboard1 = scoreboard1
 window.scoreboard2 = scoreboard2
 window.cheat = cheat
-// window.init = init
-//window.anything = anything
