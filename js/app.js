@@ -242,8 +242,13 @@ function init() {
   ]
   renderScoreboard1(p1DisplayEls)
   renderScoreboard2(p2DisplayEls)
+  p1ScoreEl.textContent = ""
+  p2ScoreEl.textContent = ""
   render()
   resetLockBtns(lockBtnEls)
+  centerEl.classList.add("hide")
+  player1El.classList.add("hide")
+  player2El.classList.add("hide")
 }
 
 function render() {
