@@ -125,6 +125,7 @@ const p2DisplayNameEl = document.querySelector("#p2-display-name")
 const centerEl = document.querySelector("#center")
 const player1El = document.querySelector("#player-1")
 const player2El = document.querySelector("#player-2")
+const titleImgEl = document.querySelector("#title-image")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -136,6 +137,7 @@ scoreboard1El.addEventListener("click", scoreboardClickHandle)
 scoreboard2El.addEventListener("click", scoreboardClickHandle)
 startBtn.addEventListener("click", closeModal)
 queensGridEl.addEventListener("click", queenClickHandle)
+titleImgEl.addEventListener("click", cheat)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -829,6 +831,7 @@ function cheat() {
   endGame()
   displayMessage()
   roundCounter = 13
+  turnCountEl.textContent = roundCounter
 }
 
 // window.init = init
